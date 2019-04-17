@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow: 
+Disallow: /storage/
+Disallow: /chromething/
+Allow: /discord/
+Allow: /daxbot/
+Allow: /
+Allow: /sitemap/
+Allow: /usploit/
+Allow: /yt/
+
+Sitemap: https://legitdax009.github.io/sitemap/
