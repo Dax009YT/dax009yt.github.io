@@ -9,4 +9,4 @@ Allow: /sitemap/
 Allow: /usploit/
 Allow: /yt/
 
-Sitemap: https://legitdax009.github.io/sitemap/
+Sitemap: https://legitdax009.github.io/sitemap.xml
