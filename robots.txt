@@ -2,6 +2,7 @@ User-Agent: *
 Disallow: 
 Disallow: /storage/
 Disallow: /chromething/
+Disallow: /google-search-test/
 Allow: /discord/
 Allow: /daxbot/
 Allow: /
