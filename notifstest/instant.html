@@ -10,6 +10,7 @@ function notifyMe() {
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
     var notification = new Notification("Subscribe to Dax009!! youtube.com/Dax009");
+    window.history.back();
   }
 
   // Otherwise, we need to ask the user for permission
@@ -18,12 +19,14 @@ function notifyMe() {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
         var notification = new Notification("Subscribe to Dax009!! youtube.com/Dax009");
+        window.history.back();
       }
     });
   }
 
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
+  window.history.back();
 }
 </script>
 <body onload="notifyMe()">
