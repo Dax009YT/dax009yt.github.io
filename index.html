@@ -1,4 +1,5 @@
 <html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://apis.google.com/js/platform.js"></script>
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
@@ -78,8 +79,20 @@ body {
   <button onclick="window.location.href = '/sitemap/';">Sitemap</button>
   <br>
 <div class="g-ytsubscribe" data-channelid="UCXakrxvcr8Hl2bB30wGPDrQ" data-layout="full" data-count="default"></div>
-<marquee class="GeneratedMarquee" direction="right" scrollamount="20" behavior="alternate">Update 2.1: Scrolling text</marquee>
+<marquee class="GeneratedMarquee" direction="right" scrollamount="20" behavior="alternate">Update 2.1: Scrolling text</marquee><br>
+  <body>Watch my latest video!</body><br>
+  <script>
+    var channelID = "UCXakrxvcr8Hl2bB30wGPDrQ";
+var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+$.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID, function(data) {
+   var link = data.items[0].link;
+   var id = link.substr(link.indexOf("=")+1);
+$("#youtube_video").attr("src","https://youtube.com/embed/"+id + "?controls=0&showinfo=0&rel=0");
+});
+  </script>
+  <iframe id="youtube_video" width="600" height="340" frameborder="0" allowfullscreen></iframe><br>
 <a href="https://tag.rc24.xyz/244224554686218240"><img src="https://tag.rc24.xyz/244224554686218240/tag.png" alt="RiiTag" /></a><br>
   <iframe src="https://discord.com/widget?id=549307561086550017&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  
   </strong>
 </html>
