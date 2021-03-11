@@ -1,0 +1,13 @@
+<html>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
+<script>
+    var channelID = "UCXakrxvcr8Hl2bB30wGPDrQ";
+var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+$.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID, function(data) {
+   var link = data.items[0].link;
+   var id = link.substr(link.indexOf("=")+1);
+$("#youtube_video").attr("src","https://www.youtube-nocookie.com/embed/"+id);
+});
+  </script>
+  <iframe id="youtube_video" width="600" height="340" frameborder="0" allowfullscreen></iframe><br>
+</html>
