@@ -4,15 +4,23 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     var url = urlParams.get('url');
-    var plr = document.getElementById("plr");
-    plr.setAttribute("data", url);
+    var param = document.getElementById("theparam");
+    var embed = document.getElementById("theembed");
+    param.setAttribute("value", url);
+    embed.setAttribute("src", url);
 </script>
+    
 <style>
 body {
   border-style: none;
 }
 </style>
 <body>
-<object id="plr" xmlns="http://www.w3.org/1999/xhtml" data="" height="350px" width="600px"></object>
+
+<object width="600" height="350">
+<param id="theparam" name="movie" value="">
+<embed id="theembed" src="" width="600" height="350"></embed>
+</object>
+
 </body>
 </html>
