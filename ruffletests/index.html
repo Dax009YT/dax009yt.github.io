@@ -1,0 +1,16 @@
+<html>
+<body>
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var url = urlParams.get('url');
+    document.getElementById("plr").data = url;
+</script>
+<style>
+body {
+  border-style: none;
+}
+</style>
+<object id="plr" xmlns="http://www.w3.org/1999/xhtml" data="" height="350px" width="600px"/>
+</body>
+</html>
