@@ -1,13 +1,15 @@
 <html>
-<script src="https://sites.google.com/site/verycoolflashgames/ruffle.js"></script>
+<script src="ruffle.js"></script>
 <script>
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const url = urlParams.get('url');
-    const param = document.getElementById("theparam");
-    const embed = document.getElementById("theembed");
-    param.setAttribute("value", url);
-    embed.setAttribute("src", url);
+    window.onload = function(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const url = urlParams.get('url');
+        const param = document.getElementById("theparam");
+        const embed = document.getElementById("theembed");
+        param.setAttribute("value", url);
+        embed.setAttribute("src", url);
+    };
 </script>
     
 <style>
