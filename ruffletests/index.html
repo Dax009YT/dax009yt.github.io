@@ -3,9 +3,9 @@
 <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    var url = urlParams.get('url');
-    var param = document.getElementById("theparam");
-    var embed = document.getElementById("theembed");
+    const url = urlParams.get('url');
+    const param = document.getElementById("theparam");
+    const embed = document.getElementById("theembed");
     param.setAttribute("value", url);
     embed.setAttribute("src", url);
 </script>
