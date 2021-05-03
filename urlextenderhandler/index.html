@@ -4,7 +4,9 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     var encoded = urlParams.get('enc');
-    window.location.redirect = atob(encoded);
+    console.log(encoded);
+    var url = atob(encoded);
+    window.location.assign = url;
 </script>
 <body>Redirecting... if this does not redirect, the link is broken or the website combusted. Oops.</body>
 </html>
