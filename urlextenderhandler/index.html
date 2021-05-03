@@ -1,0 +1,10 @@
+<html>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var encoded = urlParams.get('enc');
+    window.location.redirect = atob(encoded);
+</script>
+<body>Redirecting... if this does not redirect, the link is broken or the website combusted. Oops.</body>
+</html>
