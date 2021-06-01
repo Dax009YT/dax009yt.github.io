@@ -1,0 +1,27 @@
+<html>
+<style>
+a {
+  text-decoration: none;
+}
+a { color: inherit; } 
+</style>
+<body>
+<center>
+<font size="15" face="Source Sans Pro"><b style="color:#7289DA"><a href="https://discord.com">Discord</a></b><b> and </b><b style="color:#0078d7"><a href="https://skype.com">Skype </a></b><b>opener thingy</b></font><br><br>
+<input type="text" id="inputSkype" placeholder="Skype name" size="100" autocomplete="on">
+<button onclick="openSkype()">Open Skype to specified Skype name</button><br><br>
+<input type="text" id="inputDiscord" placeholder="Discord server invite code" size="100" autocomplete="on">
+<button onclick="openDiscord()">Open Discord to specified invite code</button><br><br>
+<b>I don't own Skype or Discord.</b>
+</body>
+<script>
+function openSkype() {
+  var text = document.getElementById("inputSkype");
+  window.location.href = "skype:"+text.value+"?chat";
+}
+function openDiscord() {
+  var text = document.getElementById("inputDiscord");
+  window.location.href = "discord://discord.com/invite/"+text.value;
+}
+</script>
+</html>
