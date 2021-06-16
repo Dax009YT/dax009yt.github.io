@@ -1,0 +1,25 @@
+<html>
+<script>
+	window.RufflePlayer = window.RufflePlayer || {};
+	window.RufflePlayer.config = {
+		"autoplay": "true",
+		"backgroundColor": "#FFFFFF",
+		"warnOnUnsupportedContent": false,
+		"contextMenu": true,
+		"unmuteOverlay": "visible",
+		"logLevel": "error",
+		"letterbox": "off"
+	};
+
+	window.addEventListener("load", (event) => {
+		const ruffle = window.RufflePlayer.newest();
+		const player = ruffle.createPlayer();
+		document.body.appendChild(player);
+		player.style.width = "1068px";
+		player.style.height = "860px";
+		player.load("sticksfight.swf");
+	});
+</script>
+<script src="ruffle.js"></script>
+<body></body>
+</html>
