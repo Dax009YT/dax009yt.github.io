@@ -6,7 +6,7 @@
     var encoded = urlParams.get('enc');
     console.log(encoded);
     var url = atob(encoded);
-    document.getElementById("msg").innerHTML = "Redirecting to " + url;
+    document.getElementById("msg").innerText = "Redirecting to " + url;
     window.location.assign(url);
 </script>
 <body id="msg">Redirecting to </body>
