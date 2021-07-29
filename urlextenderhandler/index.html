@@ -6,7 +6,8 @@
     var encoded = urlParams.get('enc');
     console.log(encoded);
     var url = atob(encoded);
-    window.location.assign = url;
+    document.getElementById("msg").innerHTML = "Redirecting to " + url;
+    window.location.assign(url);
 </script>
-<body>Redirecting... if this does not redirect, the link is broken or the website combusted. Oops.</body>
+<body id="msg">Redirecting to </body>
 </html>
