@@ -1,16 +1,6 @@
 User-Agent: *
-Disallow: 
-Disallow: /storage/
-Disallow: /chromething/
-Disallow: /google-search-test/
-Disallow: /discord/
-Disallow: /daxbot/
-Disallow: /sitemap/
-Disallow: /usploit/
-Disallow: /yt/
-Disallow: /cmoc/
-Disallow: /chilledwindows-gui/
-Disallow: /downloads/
-Allow: /
-
-Sitemap: https://legitdax009.github.io/sitemap.xml
+Disallow: /
+Allow: /$
+Allow: /discord/
+Allow: /daxbot/
+Allow: /index.html
