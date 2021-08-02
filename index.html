@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Dax009's Website</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="f1Pop6nO-D9Qlz1T_hrV0r1oxds-_7X5f_0ED8xy1tQ" />
 <meta name="google-site-verification" content="f1Pop6nO-D9Qlz1T_hrV0r1oxds-_7X5f_0ED8xy1tQ">
-
+<meta name="apple-mobile-web-app-capable" content="yes"> 
+<meta name="google-site-verification" content="f1Pop6nO-D9Qlz1T_hrV0r1oxds-_7X5f_0ED8xy1tQ" />
+<meta property="og:description" content="Dax009's website! Info about my YouTube videos, social media posts, and more!">
+<meta name="author" content="Dax009">
+<meta name="keywords" content="Dax009, Dax009YT, YTDax009">
+<meta property="og:type" content="website">
+<meta name="description" content="Dax009's website! Info about my YouTube videos, social media posts, and more!">
+<meta property="og:image" content="/siteimg.png"/>
+<meta property="og:title" content="Dax009's Website">
 <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -16,16 +25,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-<meta name="apple-mobile-web-app-capable" content="yes"> 
-<meta name="google-site-verification" content="f1Pop6nO-D9Qlz1T_hrV0r1oxds-_7X5f_0ED8xy1tQ" />
-<meta property="og:description" content="Dax009's website! Info about my YouTube videos, social media posts, and more!">
-<meta name="author" content="Dax009">
-<meta name="keywords" content="Dax009, Dax009YT, YTDax009">
-<meta property="og:type" content="website">
-<meta name="description" content="Dax009's website! Info about my YouTube videos, social media posts, and more!">
-<meta property="og:image" content="/siteimg.png"/>
-<meta property="og:title" content="Dax009's Website">
-<title>Dax009's Website</title>
 <style>
   body {
     font-family: "Source Sans Pro";
@@ -33,12 +32,13 @@
 </style>
 
 <center>
-<body><img src="Dax009website.png" alt="Dax009's Website logo" width="400" height="100"><br>
-<button onclick="window.location.href = '/signinwith/';">Google Sign In test</button>
-<button onclick="window.location.href = '/downloads/';">Downloads</button>
-<button onclick="window.location.href = '/discord/';">Discord Server</button>
-<button onclick="window.location.href = '/daxbot/';">Discord Bot</button>
-<button onclick="window.location.href = '/chilledwindows-gui/';">ChilledWindows GUI</button><br>
+<body>
+<img src="Dax009website.png" alt="Dax009's Website logo" width="400" height="100"><br>
+<button class="point" onclick="window.location.href = '/signinwith/';">Google Sign In test</button>
+<button class="point" onclick="window.location.href = '/downloads/';">Downloads</button>
+<button class="point" onclick="window.location.href = '/discord/';">Discord Server</button>
+<button class="point" onclick="window.location.href = '/daxbot/';">Discord Bot</button>
+<button class="point" onclick="window.location.href = '/urlextender/';">URL Extender</button><br>
 <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/Dax009"><img alt="Dax009 Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCXakrxvcr8Hl2bB30wGPDrQ?label=Subscribe&style=social"></a>
 <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/Dax009"><img alt="Dax009 Channel Views" src="https://img.shields.io/youtube/channel/views/UCXakrxvcr8Hl2bB30wGPDrQ?style=social"></a>
 <a target="_blank" rel="noopener noreferrer" href="https://www.twitter.com/Dax009YT"><img alt="Dax009 on Twitter" src="https://img.shields.io/twitter/follow/Dax009YT?style=social"></a>
@@ -47,15 +47,15 @@
 <iframe id="youtube_video" width="375" height="225" frameborder="0" allowfullscreen></iframe>
 <a class="twitter-timeline" data-width="375" data-height="500" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Tweets by Dax009YT</a></div>
 <script>
-var channelID = "UCXakrxvcr8Hl2bB30wGPDrQ";
-var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
-  $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID, function(data) {
-var link = data.items[0].link;
-var id = link.substr(link.indexOf("=")+1);
-  $("#youtube_video").attr("src","https://www.youtube-nocookie.com/embed/"+id);
-});
+  var channelID = "UCXakrxvcr8Hl2bB30wGPDrQ";
+  var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+    $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID, function(data) {
+  var link = data.items[0].link;
+  var id = link.substr(link.indexOf("=")+1);
+    $("#youtube_video").attr("src","https://www.youtube-nocookie.com/embed/"+id);
+  });
 </script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </body>
-  </head>
+</body>
+</head>
 </html>
