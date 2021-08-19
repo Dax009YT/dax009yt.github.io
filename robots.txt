@@ -3,4 +3,10 @@ Disallow: /
 Allow: /$
 Allow: /discord/
 Allow: /daxbot/
+Allow: /daxbot/
+Allow: /urlextender/
 Allow: /index.html
+
+# support archiveteam
+User-Agent: ArchiveBot
+Allow: *
