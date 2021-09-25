@@ -13,8 +13,8 @@
 <meta property="og:type" content="website">
 <meta name="description" content="Dax009's website! Info about my YouTube videos, social media posts, and more!">
 <meta property="og:image" content="/siteimg.png"/>
-<meta property="og:title" content="Dax009's Website">
 <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png">
+<meta property="og:title" content="Dax009's Website">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -22,6 +22,16 @@
 <meta name="msapplication-TileColor" content="#ff6a00">
 <meta name="theme-color" content="#ffffff">
 
+<script>
+	setInterval(function() {
+		var logo = document.getElementById("logo");
+		if (logo.getAttribute("src") == "daxwebsite1.png") {
+			logo.src = "daxwebsite2.png";
+		} else {
+			logo.src = "daxwebsite1.png";
+		}
+	}, 1000);
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
 <script src="cookie.notice.js"></script>
@@ -29,7 +39,7 @@
 <link rel="stylesheet" href="style.css">
 <center>
 <body>
-<a href="https://dax009.ink"><img src="Dax009website.png" alt="Dax009's Website logo" width="400" height="100"></a><br>
+<a href="https://dax009.ink"><img id="logo" style="object-fit: contain;" src="daxwebsite1.png" alt="Dax009's Website logo" width="400" height="100"></a><br>
 <button class="point" onclick="window.location.href = '/signinwith/';">Google Sign In test</button>
 <button class="point" onclick="window.location.href = '/downloads/';">Downloads</button>
 <button class="point" onclick="window.location.href = '/splatoonVideos/';">My Splatoon videos</button><br>
