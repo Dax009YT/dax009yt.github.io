@@ -1,27 +1,9 @@
-html {
-	cursor: url(/cursor.png), auto;
-}
-body {
-	font-family: "Source Sans Pro";
-}
-.point {
-	cursor: pointer; 
-}
-
-.buttons {
-	display: flex;
-	justify-content: center;
-}
-
-.embeds {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-}
-
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
+  html {
+    cursor: url(/cursor.png), auto;
+  }
+  body {
+    font-family: "Source Sans Pro";
+  }
+  .point {
+    cursor: pointer; 
+  }
