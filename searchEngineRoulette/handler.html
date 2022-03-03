@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<title>Redirecting - Search Engine Roulette</title>
+<noscript>please turn on JavaScript for the Search Engine Roulette to work, thank you......</noscript>
+<b id="msg">Redirecting to.. hold on a sec..</b>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
+<script>
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+	
+const engines = ["https://www.google.com/search?q=", "https://www4.bing.com/search?q=", "https://search.yahoo.com/search?p=", "https://results.excite.com/serp?q=", "https://duckduckgo.com/?q=", "https://www.ask.com/web?q=", "https://www.ecosia.org/search?method=index&q=", "https://gigablast.com/search?q=", "https://search.aol.com/aol/search?q="];
+
+const random = Math.floor(Math.random() * engines.length);
+const url = engines[random] + urlParams.get('q');
+document.getElementById("msg").innerText = "Redirecting to " + url;
+window.location.href = url;
+</script>
+</html>
