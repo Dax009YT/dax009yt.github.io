@@ -2,11 +2,7 @@ User-Agent: *
 Disallow: /
 Allow: /$
 Allow: /discord/
-Allow: /daxbot/
-Allow: /daxbot/
-Allow: /urlextender/
+Allow: /searchEngineRoulette/
+Allow: /splatoonVideos/
+Allow: /YouTubeOnPC/
 Allow: /index.html
-
-# support archiveteam
-User-Agent: ArchiveBot
-Allow: *
