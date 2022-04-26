@@ -7,3 +7,6 @@
   .point {
     cursor: pointer; 
   }
+  .hover {
+    cursor: alias;
+  }
