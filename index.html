@@ -49,12 +49,10 @@
 <script>
 	setInterval(function() {
 		var logo = document.getElementById("logo");
-		if (logo.style.background == "daxwebsite1.png") {
-			// logo.src = "daxwebsite2.png";
-			logo.style.background = "url('daxwebsite2.png') no-repeat;"
+		if (logo.getAttribute("src") == "daxwebsite1.png") {
+			logo.src = "daxwebsite2.png";
 		} else {
-			// logo.src = "daxwebsite1.png";
-			logo.style.background = "url('daxwebsite1.png') no-repeat;"
+			logo.src = "daxwebsite1.png";
 		}
 	}, 1000);
 </script>
