@@ -14,6 +14,8 @@
 <meta property="og:image" content="https://yt3.ggpht.com/ytc/AKedOLRy7jNhz7G7o2eq9Ns_CPYV2slhtiat96-XrzSxnA=s800-c-k-c0x00ffffff-no-rj"/>
 <meta property="og:url" content="https://legitdax009.github.io"/>
 <meta name="apple-mobile-web-app-status-bar" content="#FF6A00">
+<meta name="msapplication-TileColor" content="#FF6A00">
+<meta name="theme-color" content="#FF6A00">
 <meta name="theme-color" content="rgba(255, 106, 0, 1)">
 <meta name="keywords" content="Dax009, Dax009YT, YTDax009">
 <meta name="description" content="Dax009's website! Info about me, my YouTube videos, social media posts, and more!">
@@ -24,8 +26,8 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF6A00">
 <link rel="manifest" href="manifest.json">
-<meta name="msapplication-TileColor" content="#FF6A00">
-<meta name="theme-color" content="#FF6A00">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<link rel="stylesheet" href="style.css">
 
 <script>
 	setInterval(function() {
@@ -37,11 +39,20 @@
 		}
 	}, 1000);
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.getRegistrations()
+		.then(function(registrations) {
+			for(let registration of registrations) {
+			registration.unregister();
+		}
+	});
+}
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
 <script src="cookie.notice.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-<link rel="stylesheet" href="style.css">
+	
 <center>
 <body>
 <a href="https://dax009.ink"><img id="logo" style="object-fit: contain;" src="daxwebsite1.png" alt="Dax009's Website logo" width="400" height="100"></a><br>
