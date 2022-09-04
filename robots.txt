@@ -6,4 +6,7 @@ Allow: /discord/
 Allow: /searchEngineRoulette/
 Allow: /splatoonVideos/
 Allow: /YouTubeOnPC/
+Allow: /specs/
+Allow: /urlextender/
+Allow: /favicon.ico
 Allow: /index.html
