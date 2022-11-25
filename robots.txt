@@ -4,7 +4,6 @@ Disallow: /twitterembed/
 Allow: /$
 Allow: /discord/
 Allow: /searchEngineRoulette/
-Allow: /splatoonVideos/
 Allow: /YouTubeOnPC/
 Allow: /specs/
 Allow: /urlextender/
