@@ -2,7 +2,13 @@
 <style>
   html, body {
     margin: 0;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
   }
+  body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
 </style>
 <body>
 <a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Loading Twitter Timeline, please wait</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
