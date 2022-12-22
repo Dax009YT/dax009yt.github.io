@@ -1,0 +1,107 @@
+<html>
+    <title>YT rudimentary video player test</title>
+    <div id="ytplayer"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://dax009.ink/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <style>
+      #range {
+        width: 500px;
+      }
+    </style>
+    <script>
+    // Load the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Replace the 'ytplayer' element with an <iframe> and
+    // YouTube player after the API code downloads.
+    var player;
+    function onYouTubePlayerAPIReady() {
+        player = new YT.Player("ytplayer", {
+            height: '360',
+            width: '640',
+            videoId: 'OgaVYks2DTw',
+            playerVars: {
+                'modestbranding': 1,
+                'rel': 0
+            },
+            events: {'onStateChange': onPlayerStateChange}
+        });
+    }
+    function convert(seconds) {
+      return new Date(null, null, null, null, null, seconds).toTimeString().match(/\d{2}:\d{2}:\d{2}/)[0]
+    }
+
+    function onPlayerStateChange(event) {
+       switch(event.data) {
+            //case 0:
+            //document.getElementById("range").setAttribute("value", document.getElementById("range").getAttribute("max")); //coding 
+            //break
+            case 1:
+            document.getElementById("play").style.display = "none";
+            document.getElementById("pause").style.display = "";
+            break;
+            case 2:
+            document.getElementById("pause").style.display = "none";
+            document.getElementById("play").style.display = "";
+            break;
+            case 3:
+            document.getElementById("play").style.display = "none";
+            document.getElementById("pause").style.display = "";
+        }
+    }
+  function pause() {
+    player.pauseVideo();
+  }
+  function play() {
+    player.playVideo();
+  }
+  function mute() {
+    player.mute();
+  }
+  function unmute() {
+    player.unMute();
+  }
+  const intervalID = setInterval(muteCheck, 1); //im not good at coding
+  function muteCheck() {
+    if (player.isMuted() === true) {
+      document.getElementById("mute").style.display = "none";
+      document.getElementById("unmute").style.display = "";
+    } else {
+      document.getElementById("unmute").style.display = "none";
+      document.getElementById("mute").style.display = "";
+    }
+  }
+  const intervalID2 = setInterval(fraction, 1); //im not good at coding
+
+  function fraction() {
+    var loaded = document.getElementById("loaded");
+    var range = document.getElementById("range"); // screw you i use 1 function for 2 things
+    loaded.innerHTML = "Loaded: " + Math.round(player.getVideoLoadedFraction() * 100) + "%";
+    range.setAttribute("max", player.getDuration());
+    range.setAttribute("value", player.getCurrentTime());
+    var duration = document.getElementById("duration");
+    duration.innerHTML = convert(player.getCurrentTime()) + "/" + convert(player.getDuration()); // *3 things
+  }
+  function loadnewvid() {
+    player.cueVideoById(document.getElementById("videoId").value);
+  }
+  //function changeTime() {
+  //  var range = document.getElementById("range");
+  //  player.seekTo(range.value, true);
+  //  range.value = player.getCurrentTime();
+  //}
+</script>
+<br><button id="play" onclick="play()">Play</button>
+<button style="display: none;" id="pause" onclick="pause()">Pause</button>  
+<button id="mute" onclick="mute()">Mute</button>
+<button style="display: none;" id="unmute" onclick="unmute()">Unmute</button><b id="loaded">Loaded: ?%</b><br>
+<progress max="100" value="0" id="range"></progress> <b id="duration">0/0:00</b>
+
+<div style="border-style: hidden; width: max-content;"><label for="videoId">YouTube video ID (the part after "?v=" in most YouTube URLs</label>
+<input id="videoId" type="text">
+<button onclick="loadnewvid()">Load</button></div>
+</html>
