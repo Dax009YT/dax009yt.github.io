@@ -29,21 +29,32 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
 <link rel="stylesheet" href="style.css">
 <style>
+	html {
+		text-align: center;
+	}
 	.buttons {
 		text-decoration: none !important;
 		color: inherit;
 	}
+	.embeds {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.embeds iframe {
+		margin: 1px;
+	}
+	#Dax009Video, #DaxTenVideo {
+		border-radius: 5px;
+		flex-direction: column;
+	}
+	.twitter-timeline {
+		width: 375px !important;
+		height: 500px !important;
+		max-width: 375px !important;
+		max-height: 500px !important;
+	}
 </style>
-<script>
-	setInterval(function() {
-		var logo = document.getElementById("logo");
-		if (logo.getAttribute("src") == "daxwebsite1.png") {
-			logo.src = "daxwebsite2.png";
-		} else {
-			logo.src = "daxwebsite1.png";
-		}
-	}, 1000);
-</script>
 <script>
 if ('serviceWorker' in navigator) {
 	navigator.serviceWorker.getRegistrations()
@@ -57,10 +68,11 @@ if ('serviceWorker' in navigator) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
 <script src="cookie.notice.js"></script>
-	
-<center>
+</head>
+
 <body>
-<a href="https://dax009.ink"><img id="logo" style="object-fit: contain;" src="daxwebsite1.png" alt="Dax009's Website logo" width="400" height="100"></a><br>
+<a href="https://dax009.ink"><img id="logo" style="object-fit: contain;" src="headerimgs/1.png" alt="Dax009's Website logo" width="400" height="50"></a><br>
+
 <button class="point"><a class="buttons" href='/downloads/'>Downloads</a></button>
 <button class="point"><a class="buttons" href='/specs/'>Specs</a></button>
 <button class="point"><a class="buttons" href='/daxbot/'>Discord Bot (DaxBot)</a></button>
@@ -68,17 +80,26 @@ if ('serviceWorker' in navigator) {
 <button class="point"><a class="buttons" href='https://doxmyself.dax009.ink/'>doxmyself</a></button>
 <button class="point"><a class="buttons" href='/searchEngineRoulette/'>Search Engine Roulette</a></button>
 <button class="point"><a class="buttons" href='/urlextender/'>The URL Extender</a></button><br>
+
 <a target="_blank" href="https://www.youtube.com/Dax009?sub_confirmation=1"><img alt="Dax009 Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCXakrxvcr8Hl2bB30wGPDrQ?label=Subscribe&style=social"></a>
 <a target="_blank" href="https://twitter.com/intent/follow?screen_name=Dax009YT"><img alt="Dax009 on Twitter" src="https://img.shields.io/badge/@Dax009YT-green?logo=Twitter&style=social&label=Follow&message=3"></a>
 <a target="_blank" href="https://discord.com/invite/Zkp72CE"><img alt="Dax009's Discord Server" src="https://img.shields.io/discord/549307561086550017?label=Discord&logo=Discord&logoColor=7289DA&style=social"></a><br>
-<div><iframe src="https://discord.com/widget?id=549307561086550017&theme=dark" width="375" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-<iframe width="375" height="212" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div class="embeds">
+<iframe src="https://discord.com/widget?id=549307561086550017&theme=dark" width="375" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+<div>
+<iframe id="Dax009Video" width="375" height="212" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<iframe id="DaxTenVideo" width="375" height="212" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXHbvF6pF4KOoJKqMhrv6yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 <!--
 <iframe id="youtube_video" width="375" height="225" frameborder="0" allowfullscreen></iframe>
 -->
-<iframe frameborder="0" style="overflow: hidden; margin: 0;" src="/twitterembed/" width="375" height="500"></iframe></div><br>
+<a class="twitter-timeline" data-width="375px" data-height="500px" data-dnt="true" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Tweets by Dax009YT</a><br>
+<!-- <iframe frameborder="0" style="overflow: hidden; margin: 0;" src="/twitterembed/" width="375" height="500"></iframe></div><br> -->
 <!-- <a class="twitter-timeline" data-width="375" data-height="500" data-dnt="true" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Tweets by Dax009YT</a> -->
-<a target="_blank" href="https://github.com/LegitDax009/legitdax009.github.io"><body>Hosted on GitHub Pages + CloudFlare</body></a>
+
+</div>
+<br><a target="_blank" href="https://github.com/LegitDax009/legitdax009.github.io"><body>Hosted on GitHub Pages + CloudFlare</body></a>
 <!--<script>
   var channelID = "UCXakrxvcr8Hl2bB30wGPDrQ";
   var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
@@ -88,7 +109,28 @@ if ('serviceWorker' in navigator) {
     $("#youtube_video").attr("src","https://www.youtube-nocookie.com/embed/"+id);
   });
 </script>-->
-</center>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+	/* setInterval(function() {
+		var logo = document.getElementById("logo");
+		if (logo.getAttribute("src") == "daxwebsite1.png") {
+			logo.src = "daxwebsite2.png";
+		} else {
+			logo.src = "daxwebsite1.png";
+		}
+	}, 1000); */
+	const rand = Math.floor(Math.random() * 4) + 1
+	var logo = document.getElementById("logo");
+	if (rand === 1) {
+		logo.src = "headerimgs/1.png";
+	} else if (rand === 2) {
+		logo.src = "headerimgs/2.png";
+	} else if (rand === 3) {
+		logo.src = "headerimgs/3.png";
+	} else if (rand === 4) {
+		logo.src = "headerimgs/4.png";
+	}
+	// now this is awful coding
+</script>
 </body>
-</head>
 </html>
