@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
 <link rel="stylesheet" href="/style.css">
-<center>
+<title>404: Not Found.</title>
+<style>
+    html {
+        text-align: center;
+    }
+    body {
+        margin: 0;
+    }
+</style>
+<script>
+    const button = document.getElementById("ie404");
+    function eastereggie() {
+        document.body.innerHTML = ''
+        document.title = '404: Not Found?'
+        const iframe = document.createElement('iframe');
+        iframe.src = '/404ie11.html';
+        iframe.style.height = "100vh";
+        iframe.style.width = "100vw";
+        iframe.style.border = "none";
+        iframe.style.display = "block";
+        iframe.style.zIndex = "999999";
+        document.body.appendChild(iframe);
+    }
+</script>
+<body></body>
 <h1>Well, you're lost.</h1>
-<h3>404: Page not found</h3><hr>
-<body>The page you're looking for.. <b>isn't here.</b> Might've been taken down, deleted, or never existed. Unfortunate.</body><hr>
-<button onclick="history.back();">Go back (if you came from another page)</a>
+<h3><img id="ie404" onclick="eastereggie()" style="cursor: pointer; vertical-align: middle; padding: 4px;" height="18px" src="images/info_48.png"/>404: Page not found</h3><hr>
+<body>Whatever this page was, it's not here now. Might've been taken down, deleted, or never existed. Unfortunate.</body><hr>
+<button onclick="history.back();">Go back</a>
 <button onclick="window.location.href = 'https://dax009.ink';">Go home</a>
 <button onclick="window.location.href = 'https://youtube.com/Dax009';">Dax009 on YouTube</a>
+</body>
 </html>
