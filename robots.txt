@@ -4,8 +4,8 @@ Disallow: /twitterembed/
 Allow: /$
 Allow: /discord/
 Allow: /searchEngineRoulette/
-Allow: /YouTubeOnPC/
 Allow: /specs/
+Allow: /aboutme/
 Allow: /urlextender/
 Allow: /favicon.ico
 Allow: /index.html
