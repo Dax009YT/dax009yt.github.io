@@ -84,14 +84,32 @@ if ('serviceWorker' in navigator) {
 	});
 }
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://apis.google.com/js/platform.js"></script>
-<script src="cookie.notice.js"></script>
 </head>
 
 <body>
 <a href="https://dax009.ink"><img id="logo" style="object-fit: contain; width: 400px; height: 50px; max-width: 100%;" src="headerimgs/1.png" alt="Dax009's Website logo"></a><br>
-
+<script>
+	/* setInterval(function() {
+		var logo = document.getElementById("logo");
+		if (logo.getAttribute("src") == "daxwebsite1.png") {
+			logo.src = "daxwebsite2.png";
+		} else {
+			logo.src = "daxwebsite1.png";
+		}
+	}, 1000); */
+	const rand = Math.floor(Math.random() * 4) + 1
+	var logo = document.getElementById("logo");
+	if (rand === 1) {
+		logo.src = "headerimgs/1.png";
+	} else if (rand === 2) {
+		logo.src = "headerimgs/2.png";
+	} else if (rand === 3) {
+		logo.src = "headerimgs/3.png";
+	} else if (rand === 4) {
+		logo.src = "headerimgs/4.png";
+	}
+	// now this is awful coding
+</script>
 <button class="point"><a class="buttons" href='/about/'>About</a></button>
 <button class="point"><a class="buttons" href='/specs/'>Specs</a></button>
 <button class="point"><a class="buttons" href='https://links.dax009.ink/'>Links</a></button>
@@ -128,28 +146,10 @@ if ('serviceWorker' in navigator) {
     $("#youtube_video").attr("src","https://www.youtube-nocookie.com/embed/"+id);
   });
 </script>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js"></script>
+<script src="cookie.notice.js"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script>
-	/* setInterval(function() {
-		var logo = document.getElementById("logo");
-		if (logo.getAttribute("src") == "daxwebsite1.png") {
-			logo.src = "daxwebsite2.png";
-		} else {
-			logo.src = "daxwebsite1.png";
-		}
-	}, 1000); */
-	const rand = Math.floor(Math.random() * 4) + 1
-	var logo = document.getElementById("logo");
-	if (rand === 1) {
-		logo.src = "headerimgs/1.png";
-	} else if (rand === 2) {
-		logo.src = "headerimgs/2.png";
-	} else if (rand === 3) {
-		logo.src = "headerimgs/3.png";
-	} else if (rand === 4) {
-		logo.src = "headerimgs/4.png";
-	}
-	// now this is awful coding
-</script>
 </body>
 </html>
