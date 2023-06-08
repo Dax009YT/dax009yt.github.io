@@ -5,7 +5,11 @@ Allow: /$
 Allow: /discord/
 Allow: /searchEngineRoulette/
 Allow: /specs/
-Allow: /aboutme/
+Allow: /specs
+Allow: /about/
+Allow: /about
+Allow: /daxbot/
+Allow: /daxbot
 Allow: /urlextender/
 Allow: /favicon.ico
 Allow: /index.html
