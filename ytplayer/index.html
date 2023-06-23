@@ -65,7 +65,6 @@
   function unmute() {
     player.unMute();
   }
-  const intervalID = setInterval(muteCheck, 1); //im not good at coding
   function muteCheck() {
     if (player.isMuted() === true) {
       document.getElementById("mute").style.display = "none";
@@ -75,7 +74,6 @@
       document.getElementById("mute").style.display = "";
     }
   }
-  const intervalID2 = setInterval(fraction, 1); //im not good at coding
 
   function fraction() {
     var loaded = document.getElementById("loaded");
@@ -86,14 +84,28 @@
     var duration = document.getElementById("duration");
     duration.innerHTML = convert(player.getCurrentTime()) + "/" + convert(player.getDuration()); // *3 things
   }
-  function loadnewvid() {
-    player.cueVideoById(document.getElementById("videoId").value);
+  function loadnewvid(id) {
+    player.cueVideoById(id);
   }
   //function changeTime() {
   //  var range = document.getElementById("range");
   //  player.seekTo(range.value, true);
   //  range.value = player.getCurrentTime();
   //}
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var paramID = urlParams.get('v');
+
+  window.addEventListener('load', function () {
+    if(paramID) {
+      document.getElementById("videoId").value = paramID;
+      player.cueVideoById(paramID);
+    }
+    setInterval(function () {
+      fraction();
+      muteCheck();
+    }, 1);
+  })
 </script>
 <br><button id="play" onclick="play()">Play</button>
 <button style="display: none;" id="pause" onclick="pause()">Pause</button>  
@@ -103,5 +115,12 @@
 
 <div style="border-style: hidden; width: max-content;"><label for="videoId">YouTube video ID (the part after "?v=" in most YouTube URLs</label>
 <input id="videoId" type="text">
-<button onclick="loadnewvid()">Load</button></div>
+<button onclick="loadnewvid(document.getElementById('videoId').value)">Load</button></div>
+<span>Example videos:</span>
+<button onclick="loadnewvid('OgaVYks2DTw')">1</button>
+<button onclick="loadnewvid('2IqnuRhbMiM')">2</button>
+<button onclick="loadnewvid('4TzVOLOROkM')">3</button>
+<button onclick="loadnewvid('8bu4fx1pWB4')">4</button>
+<br><hr style="width: 350px; float: left; max-width: 100%;"><br>
+<small>most of those videos aren't mine. YouTube property of Google.</small>
 </html>
