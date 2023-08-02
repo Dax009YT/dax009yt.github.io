@@ -91,7 +91,7 @@
 		max-width: 100%;
 	}
 	.embeds iframe {
-		margin: 1px;
+		margin-bottom: 3px;
 	}
 	#Dax009Video, #DaxTenVideo, .TumblrEmbed {
 		border-radius: 5px;
@@ -106,6 +106,39 @@
 	}
 	.TumblrEmbed {
 		display: none;
+	}
+	.popup {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.popup .subscribe {
+		display: none;
+		position: absolute;
+		z-index: 1;
+		top: 100%;
+		left: 50%;
+		margin-left: -80px;
+	}
+	.subscribe {
+		/* position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%); */
+		width: 250px;
+		height: 100px;
+		z-index: 999;
+		background: linear-gradient(180deg, rgba(59,0,255,1) 0%, rgba(0,148,255,1) 100%);
+		display: flex;
+		align-items: center;
+		box-shadow: 0px 0px 5px darkgray;
+		border-radius: 10px;
+		justify-content: center;
+		flex-direction: column;
 	}
 </style>
 
@@ -171,6 +204,15 @@ if ('serviceWorker' in navigator) {
 			twitterembed.style.display = "flex";
 		}
 	}
+	function togglepopup() {
+		var popup = document.getElementsByClassName("popup")[0];
+		var subscribe = document.getElementsByClassName("subscribe")[0];
+		if (subscribe.style.display == "flex") {
+			subscribe.style.display = "none";
+		} else {
+			subscribe.style.display = "flex";
+		}
+	}
 </script>
 
 <button class="point"><a class="buttons" href='/about/'>About</a></button>
@@ -181,23 +223,26 @@ if ('serviceWorker' in navigator) {
 <button class="point"><a class="buttons" href='/searchEngineRoulette/'>Search Engine Roulette</a></button>
 <button class="point"><a class="buttons" href='/urlextender/'>The URL Extender</a></button><br>
 
-<a target="_blank" href="https://www.youtube.com/Dax009?sub_confirmation=1"><img height="22px" alt="Dax009 Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCXakrxvcr8Hl2bB30wGPDrQ?label=Subscribe&style=social"></a>
+<!-- <a target="_blank" href="https://www.youtube.com/Dax009?sub_confirmation=1">-->
+<!--</a>-->
+<div class="popup"><img onclick="togglepopup()" height="22px" alt="Dax009 Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCXakrxvcr8Hl2bB30wGPDrQ?label=Subscribe&style=social">
+<div class="subscribe"><iframe width="173px" height="48px" style="border: 0; margin: 0; overflow: hidden;" loading="lazy" scrolling="no" src="sub/"></iframe><button onclick="togglepopup()">Close</button></div></div>
 <a target="_blank" href="https://twitter.com/intent/follow?screen_name=Dax009YT"><img height="22px" alt="Dax009 on Twitter" src="https://img.shields.io/badge/@Dax009YT-green?logo=Twitter&style=social&label=Follow&message=3"></a>
 <a target="_blank" href="https://discord.com/invite/Zkp72CE"><img height="22px" alt="Dax009's Discord Server" src="https://img.shields.io/discord/549307561086550017?label=Discord&logo=Discord&logoColor=7289DA&style=social"></a><br>
 
 <div class="embeds">
-<iframe id="DiscordEmbed" src="https://discord.com/widget?id=549307561086550017&theme=dark" width="400" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+<iframe id="DiscordEmbed" src="https://discord.com/widget?id=549307561086550017&theme=dark" width="368" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 <div>
-<iframe id="Dax009Video" width="384" height="216" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-<iframe id="DaxTenVideo" width="384" height="216" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXHbvF6pF4KOoJKqMhrv6yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="Dax009Video" width="368" height="207" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<iframe id="DaxTenVideo" width="368" height="207" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXHbvF6pF4KOoJKqMhrv6yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <!--
 <iframe id="youtube_video" width="375" height="225" frameborder="0" allowfullscreen></iframe>
 -->
 <div> 
 <button onclick="switchEmbeds()" style="float: left; font-size: 20px;">Toggle Twitter/Tumblr embed</button><br>
-<a class="twitter-timeline" data-width="385px" data-height="570px" data-tweet-limit="20" data-chrome="nofooter noscrollbar" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Tweets by Dax009YT</a>
-<iframe class="TumblrEmbed" frameborder="0" style="overflow: hidden; margin: 0;" loading="lazy" src="https://tumblr.dax009.ink/#feed" width="385px" height="570px"></iframe></div><br>
+<a class="twitter-timeline" data-width="368px" data-height="570px" data-tweet-limit="20" data-chrome="nofooter noscrollbar" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Tweets by Dax009YT</a>
+<iframe class="TumblrEmbed" frameborder="0" style="overflow: hidden; margin: 0;" loading="lazy" src="https://tumblr.dax009.ink/#feed" width="368px" height="570px"></iframe></div><br>
 <!-- <iframe frameborder="0" style="overflow: hidden; margin: 0;" src="/twitterembed/" width="375" height="500"></iframe></div><br> -->
 <!-- <a class="twitter-timeline" data-width="375" data-height="500" data-dnt="true" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Tweets by Dax009YT</a> -->
 </div>
@@ -212,7 +257,6 @@ if ('serviceWorker' in navigator) {
     $("#youtube_video").attr("src","https://www.youtube-nocookie.com/embed/"+id);
   });
 </script>-->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
 <script src="cookie.notice.js"></script>
