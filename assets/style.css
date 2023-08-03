@@ -10,3 +10,56 @@
   .hover {
     cursor: alias;
   }
+  @font-face {
+		font-family: eightbitoperator;
+		src: url(/assets/8bitoperatorJVE.woff);
+	}
+    header {
+        font-family: eightbitoperator, 'Source Sans Pro';
+        font-size: 30px;
+        width: 100%;
+        height: 40px;
+        background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,148,255,1) 100%);
+        vertical-align: middle;
+        align-items: center;
+        display: flex;
+    }
+    .headertitle a {
+        padding: 8px;
+        text-decoration: none;
+        color: white;
+        white-space: nowrap;
+    }
+    .headertitle a:hover {
+      background: linear-gradient(90deg, rgba(0,9,255,1) 0%, rgba(0,148,255,1) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .headerButtons {
+        margin-left: auto;
+        padding-right: 10px;
+        white-space: nowrap;
+        overflow-x: auto;
+        height: 100%;
+        margin-top: 0;
+        border-left: 5px #ffffff67;
+        border-right: 0;
+        border-top: 0;
+        border-bottom: 0;
+        border-style: solid;
+    }
+    .headerButtons a {
+        text-decoration: overline;
+        color: white;
+        display: inline-block;
+        padding-left: 8px;
+        vertical-align: middle;
+        line-height: 40px; /* <-- this is what you must define */
+    }
+    .headerButtons a:hover {
+        color: #FF6A00;
+    }
+    body {
+        margin-top: 0;
+    }
