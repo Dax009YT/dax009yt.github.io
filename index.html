@@ -93,7 +93,7 @@
 	.embeds iframe {
 		margin-bottom: 3px;
 	}
-	#Dax009Video, #DaxTenVideo, .TumblrEmbed {
+	#Dax009Video, #DaxTenVideo, #Dax009Playlist, .TumblrEmbed {
 		border-radius: 5px;
 		flex-direction: column;
 	}
@@ -132,13 +132,21 @@
 		width: 250px;
 		height: 100px;
 		z-index: 999;
-		background: linear-gradient(180deg, rgba(59,0,255,1) 0%, rgba(0,148,255,1) 100%);
+		background: linear-gradient(135deg, rgba(59,0,255,1) 0%, rgba(0,148,255,1) 100%);
 		display: flex;
 		align-items: center;
 		box-shadow: 0px 0px 5px darkgray;
 		border-radius: 10px;
 		justify-content: center;
 		flex-direction: column;
+	}
+	#playlistselection {
+		width: 100%;
+		font-family: eightbitoperator, 'Source Sans Pro';
+		font-size: 18px;
+		background: #FF6A00;
+		color: white;
+		border-radius: 3px;
 	}
 </style>
 
@@ -192,27 +200,6 @@ if ('serviceWorker' in navigator) {
 		logo.src = path + img
 	}	
 	getRandomImage(arrayImg, '/assets/headerimgs/')
-
-	function switchEmbeds() {
-		var twitterembed = document.getElementsByClassName("twitter-timeline")[0];
-		var tumblrembed = document.getElementsByClassName("TumblrEmbed")[0];
-		if (window.getComputedStyle(tumblrembed).display == 'none') {
-			twitterembed.style.display = "none";
-			tumblrembed.style.display = "flex";
-		} else {
-			tumblrembed.style.display = "none";
-			twitterembed.style.display = "flex";
-		}
-	}
-	function togglepopup() {
-		var popup = document.getElementsByClassName("popup")[0];
-		var subscribe = document.getElementsByClassName("subscribe")[0];
-		if (subscribe.style.display == "flex") {
-			subscribe.style.display = "none";
-		} else {
-			subscribe.style.display = "flex";
-		}
-	}
 </script>
 
 <button class="point"><a class="buttons" href='/about/'>About</a></button>
@@ -234,7 +221,23 @@ if ('serviceWorker' in navigator) {
 <iframe id="DiscordEmbed" src="https://discord.com/widget?id=549307561086550017&theme=dark" width="368" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 <div>
 <iframe id="Dax009Video" width="368" height="207" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-<iframe id="DaxTenVideo" width="368" height="207" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXHbvF6pF4KOoJKqMhrv6yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="DaxTenVideo" width="368" height="207" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXHbvF6pF4KOoJKqMhrv6yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<select id="playlistselection">
+	<option value="0">Playlist: The Best of Dax009</option>
+	<option value="1">Playlist: Splatoon videos</option>
+	<option value="2">Playlist: Technology stuff</option>
+	<option value="3">Playlist: Homebrew/Hacks</option>
+	<option value="4">Playlist: Vlogs/IRL stuff</option>
+	<option value="5">Playlist: Dax009 Specials/Subscriber Milestones</option>
+	<option value="6">Channel: Not Dax009</option>
+	<option value="7">Friend: Jackeltron</option>
+	<option value="8">Friend: Jackeltron EAS</option>
+	<option value="9">Friend: Wooystun</option>
+	<option value="10">Friend: etern1</option>
+	<option value="11">Friend: Nebula</option>
+	<option value="12">Friend: IAteUrCube</option>
+</select><br>
+<iframe id="Dax009Playlist" width="368" height="207" src="https://www.youtube.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 </div>
 <!--
 <iframe id="youtube_video" width="375" height="225" frameborder="0" allowfullscreen></iframe>
@@ -254,9 +257,74 @@ if ('serviceWorker' in navigator) {
     $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID, function(data) {
   var link = data.items[0].link;
   var id = link.substr(link.indexOf("=")+1);
-    $("#youtube_video").attr("src","https://www.youtube-nocookie.com/embed/"+id);
+    $("#youtube_video").attr("src","https://www.youtube.com/embed/"+id);
   });
 </script>-->
+<script>
+	// yt player stuff
+	/* var tag = document.createElement('script');
+	tag.src = 'https://www.youtube.com/iframe_api';
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	var player;
+	function onYouTubeIframeAPIReady() {
+	var player = new YT.Player('Dax009Playlist', {
+		events: {
+			'onReady': onPlayerReady		
+		}
+	});
+	}
+	function onPlayerReady(event) {
+		event.target.cuePlaylist({list: "PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7"});
+	} */
+
+	//functions
+	function switchEmbeds() {
+		var twitterembed = document.getElementsByClassName("twitter-timeline")[0];
+		var tumblrembed = document.getElementsByClassName("TumblrEmbed")[0];
+		if (window.getComputedStyle(tumblrembed).display == 'none') {
+			twitterembed.style.display = "none";
+			tumblrembed.style.display = "flex";
+		} else {
+			tumblrembed.style.display = "none";
+			twitterembed.style.display = "flex";
+		}
+	}
+	function togglepopup() {
+		var popup = document.getElementsByClassName("popup")[0];
+		var subscribe = document.getElementsByClassName("subscribe")[0];
+		if (subscribe.style.display == "flex") {
+			subscribe.style.display = "none";
+		} else {
+			subscribe.style.display = "flex";
+		}
+	}
+
+	//google generative ai moment
+	const selectElement = document.getElementById("playlistselection");
+	const playlistEmbed = document.getElementById("Dax009Playlist");
+	const baseURL = "https://www.youtube.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&enablejsapi=1&list=";
+	const playlistIDs = [
+		"PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7",
+		"PLsATjXjPMLqWosF6t0R37U8FMRGjHvmJg",
+		"PLsATjXjPMLqU6903KRFi5Kf7OEoWMSGha",
+		"PLsATjXjPMLqXM1yxLfH4la9Oz0CTxcyd1",
+		"PLsATjXjPMLqWXEyb8TxLZhQ3MbppXuD-3",
+		"PLsATjXjPMLqXL-CCEGW-4G-8OI1mcEoiV",
+		"UU1Nfey6JACblkz5xxwSBTOw",
+		"UU5rYwkq1syVdrSnj0foZ7ig",
+		"UUmnGxXwyE8wy9AqyBxkJBXg",
+		"UUg-dfNuQ5PFhzCkXe88STNg",
+		"UUn-OAQvi8kMo-aVIeLTSxdA",
+		"UUUAi1YD6boX8Uhf7B0FBAMQ",
+		"UUDeF1Hmg71xthk8kNwJxrxw"
+	];
+	selectElement.addEventListener("change", () => {
+		//alert(baseURL + playlistIDs[selectElement.value]);
+		playlistEmbed.src = baseURL + playlistIDs[selectElement.value];
+	});
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
 <script src="cookie.notice.js"></script>
