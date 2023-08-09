@@ -13,3 +13,6 @@ Allow: /daxbot
 Allow: /urlextender/
 Allow: /favicon.ico
 Allow: /index.html
+
+User-agent: GPTBot
+Disallow: /
