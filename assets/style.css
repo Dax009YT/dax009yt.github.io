@@ -1,9 +1,6 @@
   /* html {
     cursor: url(/cursor.png), auto;
   } */
-  body {
-    font-family: "Source Sans Pro";
-  }
   .point {
     cursor: pointer; 
   }
@@ -65,4 +62,43 @@
     }
     a {
       color: #FF6A00;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Source Sans Pro";
+    }
+
+    footer {
+      position: sticky;
+      top: 100vh;
+      vertical-align: middle;
+      align-items: center;
+      display: flex;
+      width: 100%;
+      max-width: 100%;
+      min-height: 50px;
+      font-size: 18px;
+      background: linear-gradient(180deg, rgba(255,106,0,1) 0%, rgba(255, 60, 0, 0.575));
+      color: white;
+      flex-direction: row;
+      justify-content: space-around;
+      font-family: eightbitoperator;
+      margin-top: 8px;
+      max-height: 80px;
+    }
+    footer i {
+      text-align: right;
+    }
+    footer div {
+      display: flex;
+      align-items: center;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    footer i {
+      padding-right: 16px;
+    }
+    footer img {
+      padding-right: 8px;
     }
