@@ -7,15 +7,42 @@
 <style>
     html {
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
     }
     body {
         margin: 0;
+        padding-left: 6px;
+        padding-right: 6px;
+        height: auto;
     }
+    @media (prefers-color-scheme: dark) {
+		body {
+			/* background-color: #121212; */
+			color: white;
+			background: linear-gradient(0deg, rgba(18,31,46,1) 0%, rgba(0,35,84,1) 100%);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+	}
+	@media (prefers-color-scheme: light) {
+		body {
+            color: white;
+			background: linear-gradient(0deg, rgba(0,104,255,1) 0%, rgba(2,26,96,1) 100%);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+	}
+    
 </style>
 <script>
     const button = document.getElementById("ie404");
     function eastereggie() {
         document.body.innerHTML = ''
+        document.body.style.overflow = 'hidden';
+        document.body.style.background = "#e8eaef";
         document.title = '404: Not Found?'
         const iframe = document.createElement('iframe');
         iframe.src = '/404ie11.html';
@@ -27,7 +54,7 @@
         document.body.appendChild(iframe);
     }
 </script>
-<body></body>
+<body>
 <h1>Well, you're lost.</h1>
 <h3><img id="ie404" onclick="eastereggie()" style="cursor: pointer; vertical-align: middle; padding: 4px;" height="18px" src="/images/info_48.png"/>404: Page not found</h3><hr>
 <body>Whatever this page was, it's not here now. Might've been taken down, deleted, or never existed. Unfortunate.</body><hr>

@@ -67,6 +67,7 @@
     html, body {
       height: 100%;
       font-family: "Source Sans Pro";
+      text-shadow: #000000 1px 0 10px;
     }
 
     footer {
