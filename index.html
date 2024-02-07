@@ -264,7 +264,7 @@ if ('serviceWorker' in navigator) {
 </div>
 </div>
 <a target="_blank" style="font-size: 18px; display: inline-block;" href="https://github.com/dax009yt/dax009yt.github.io"><p>Hosted on GitHub Pages + CloudFlare</p></a>
-<span style="font-family: cursive !important; background: red; border: 1px solid black;padding: 3px;font-weight: bold;">IRC-Bullying-Awareness &mdash; We support the <a href="http://stop-irc-bullying.info/" title="Stop bullying on IRC now!">Stop IRC Bullying Foundation!</a></span>
+<span id="irc" style="display: none; font-family: cursive !important; background: red; border: 1px solid black;padding: 3px;font-weight: bold;">IRC-Bullying-Awareness &mdash; We support the <a href="http://stop-irc-bullying.info/" title="Stop bullying on IRC now!">Stop IRC Bullying Foundation!</a></span>
 
 <footer>
     <div>
@@ -347,6 +347,10 @@ if ('serviceWorker' in navigator) {
 		//alert(baseURL + playlistIDs[selectElement.value]);
 		playlistEmbed.src = baseURL + playlistIDs[selectElement.value];
 	});
+
+	if (Math.round(Math.random() * (10 - 0) + 0) == 5) {
+		document.getElementById('irc').style.display = "block";
+	}
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
