@@ -8,8 +8,10 @@
     <title>&lrm;</title>
     <link rel="icon" type="image/x-icon" href="dr.ico">
     <style>
-        html {
+        html, body {
             background-color: black;
+            max-height: 100%;
+            overflow: hidden;
         }
         #dog {
             position: absolute;
@@ -47,6 +49,5 @@
         };
 
         dog.addEventListener("click", togglePlay)
-        dog.addEventListener("touchend", togglePlay)
     </script>
 </html>
