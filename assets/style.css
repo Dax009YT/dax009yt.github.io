@@ -28,10 +28,11 @@
         white-space: nowrap;
     }
     .headertitle a:hover {
-      background: linear-gradient(90deg, rgba(0,9,255,1) 0%, rgba(0,148,255,1) 100%);
+      background: #0070E0 ;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: none !important;
     }
     .headerButtons {
         margin-left: auto;
@@ -52,7 +53,7 @@
         display: inline-block;
         padding-left: 8px;
         vertical-align: middle;
-        line-height: 40px; /* <-- this is what you must define */
+        line-height: 40px; 
     }
     .headerButtons a:hover {
         color: #FF6A00;
