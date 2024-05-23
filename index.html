@@ -16,7 +16,7 @@
 <meta property="og:title" content="Dax009's Website">
 <meta property="og:description" content="Dax009's website! Info about me, my YouTube videos, social media posts, and more!">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://yt3.ggpht.com/ytc/AKedOLRy7jNhz7G7o2eq9Ns_CPYV2slhtiat96-XrzSxnA=s800-c-k-c0x00ffffff-no-rj"/>
+<meta property="og:image" content="https://dax009.ink/images/logo500px.png"/>
 <meta property="og:url" content="https://dax009yt.github.io"/>
 <meta name="apple-mobile-web-app-status-bar" content="#FF6A00">
 <meta name="apple-mobile-web-app-capable" content="yes"> 
@@ -239,15 +239,15 @@ if ('serviceWorker' in navigator) {
 	<option value="0">Playlist: The Best of Dax009</option>
 	<option value="1">Playlist: Splatoon videos</option>
 	<option value="2">Playlist: Technology stuff</option>
-	<option value="3">Playlist: Homebrew/Hacks</option>
-	<option value="4">Playlist: Vlogs/IRL stuff</option>
-	<option value="5">Playlist: Dax009 Specials/Subscriber Milestones</option>
-	<option value="6">Channel: Not Dax009</option>
-	<option value="7">Friend: Jackeltron</option>
-	<option value="8">Friend: Jackeltron TRES</option>
-	<option value="9">Friend: Wooystun</option>
-	<option value="10">Friend: etern1</option>
-	<option value="11">Friend: Nebula</option>
+	<option value="3">Playlist: Vlogs/IRL stuff</option>
+	<option value="4">Playlist: Dax009 Specials/Subscriber Milestones</option>
+	<option value="5">Channel: Not Dax009</option>
+	<option value="6">Friend: Jackeltron</option>
+	<option value="7">Friend: Jackeltron TRES</option>
+	<option value="8">Friend: Wooystun</option>
+	<option value="9">Friend: Nebula</option>
+	<option value="10">Friend: KingKeaton09</option>
+	<option value="11">Friend: etern1</option>
 	<option value="12">Friend: IAteUrCube</option>
 </select><br>
 <iframe id="Dax009Playlist" width="368" height="207" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
@@ -269,8 +269,11 @@ if ('serviceWorker' in navigator) {
 <footer>
     <div>
     <img src="/images/icon-512x512.png" height="32px">
-    <span>Copyright Dax009 2024</span></div>
+    <span id="footerCopyright">Copyright Dax009 2024</span></div>
     <i>All trademarks, logos and brand names are the property of their respective owners.</i>
+	<script>
+		document.getElementById("footerCopyright").innerHTML = "Copyright Dax009 " + new Date().getFullYear();
+	</script>
 </footer>
 
 
@@ -325,23 +328,24 @@ if ('serviceWorker' in navigator) {
 	}
 
 	//google generative ai moment
-	const selectElement = document.getElementById("playlistselection");
+	const selectElement = document.getElementById("playlistselection"); 
 	const playlistEmbed = document.getElementById("Dax009Playlist");
 	const baseURL = "https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&enablejsapi=1&list=";
 	const playlistIDs = [
-		"PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7",
-		"PLsATjXjPMLqWosF6t0R37U8FMRGjHvmJg",
-		"PLsATjXjPMLqU6903KRFi5Kf7OEoWMSGha",
-		"PLsATjXjPMLqXM1yxLfH4la9Oz0CTxcyd1",
-		"PLsATjXjPMLqWXEyb8TxLZhQ3MbppXuD-3",
-		"PLsATjXjPMLqXL-CCEGW-4G-8OI1mcEoiV",
-		"UU1Nfey6JACblkz5xxwSBTOw",
-		"UU5rYwkq1syVdrSnj0foZ7ig",
-		"UUmnGxXwyE8wy9AqyBxkJBXg",
-		"UUg-dfNuQ5PFhzCkXe88STNg",
-		"UUn-OAQvi8kMo-aVIeLTSxdA",
-		"UUUAi1YD6boX8Uhf7B0FBAMQ",
-		"UUDeF1Hmg71xthk8kNwJxrxw"
+		"PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7", // The Best of Dax009
+		"PLsATjXjPMLqWosF6t0R37U8FMRGjHvmJg", // Splatoon videos!
+		"PLsATjXjPMLqU6903KRFi5Kf7OEoWMSGha", // Technology stuff!
+		//"PLsATjXjPMLqXM1yxLfH4la9Oz0CTxcyd1", // Homebrew/Hacks!
+		"PLsATjXjPMLqWXEyb8TxLZhQ3MbppXuD-3", // Vlogs/IRL stuff
+		"PLsATjXjPMLqXL-CCEGW-4G-8OI1mcEoiV", // Dax009 Specials/Subscriber Milestones
+		"UU1Nfey6JACblkz5xxwSBTOw", // Not Dax009/axdaxis
+		"UU5rYwkq1syVdrSnj0foZ7ig", // Jackeltron
+		"UUmnGxXwyE8wy9AqyBxkJBXg", // Jackeltron TRES
+		"UUg-dfNuQ5PFhzCkXe88STNg", // Wooystun
+		"UUUAi1YD6boX8Uhf7B0FBAMQ", // Nebula
+		"UUejvnBSSRVmOPzjInRALUng", // KingKeaton09
+		"UUn-OAQvi8kMo-aVIeLTSxdA", // etern1
+		"UUDeF1Hmg71xthk8kNwJxrxw" // IAteUrCube
 	];
 	selectElement.addEventListener("change", () => {
 		//alert(baseURL + playlistIDs[selectElement.value]);
@@ -352,6 +356,7 @@ if ('serviceWorker' in navigator) {
 		document.getElementById('irc').style.display = "block";
 	}
 </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js"></script>
 <script src="cookie.notice.js"></script>
