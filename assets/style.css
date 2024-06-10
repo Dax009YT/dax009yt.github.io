@@ -70,7 +70,15 @@
       font-family: "Source Sans Pro";
       text-shadow: #000000 1px 0 10px;
     }
+    .footerIcon {
+      width: max(3.5vh, 32px);
+    }
 
+    @media screen and (max-width:640px) {
+      .footerSocialIcons {
+        display: none;
+      }
+    }
     footer {
       position: sticky;
       top: 100vh;
@@ -79,15 +87,14 @@
       display: flex;
       width: 100%;
       max-width: 100%;
-      min-height: 50px;
-      font-size: 18px;
+      height: 2vh;
       background: linear-gradient(180deg, rgba(255,106,0,1) 0%, rgba(255, 60, 0, 0.575));
       color: white;
       flex-direction: row;
       justify-content: space-around;
       font-family: eightbitoperator;
       margin-top: 8px;
-      max-height: 80px;
+      min-height: 60px;
     }
     footer i {
       text-align: right;
@@ -103,4 +110,10 @@
     }
     footer img {
       padding-right: 8px;
+    }
+    footer * {
+      font-size: max(2vh, 18px);
+    }
+    .invert {
+      filter: invert(100%);
     }
