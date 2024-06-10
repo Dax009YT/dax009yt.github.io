@@ -87,7 +87,7 @@
       display: flex;
       width: 100%;
       max-width: 100%;
-      height: 2vh;
+      height: fit-content;
       background: linear-gradient(180deg, rgba(255,106,0,1) 0%, rgba(255, 60, 0, 0.575));
       color: white;
       flex-direction: row;
@@ -117,3 +117,8 @@
     .invert {
       filter: invert(100%);
     }
+    .eggbuttons {
+      justify-content: center;
+      display: flex;
+      gap: 5px;
+  }
