@@ -121,4 +121,5 @@
       justify-content: center;
       display: flex;
       gap: 5px;
+      image-rendering: pixelated;
   }
