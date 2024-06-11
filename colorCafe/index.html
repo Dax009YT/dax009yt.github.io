@@ -116,6 +116,15 @@
             background-position: center;
             display: flex;
         }
+        #textBoxBGalt {
+            height: inherit;
+            aspect-ratio: 8 / 3;
+            background: url(fullTextbox.gif) no-repeat center;
+            image-rendering: pixelated;
+            background-size: contain;
+            background-position: center;
+            display: flex;
+        }
         #textBox {
             color: white;
             font-family: determinationmono;
@@ -124,9 +133,21 @@
             position: relative;
             left: 5%;
             top: 11%;
-            text-shadow: 3px 3px #03047C;
+            text-shadow: 0.156vw 0.156vw #03047C;
             word-wrap: break-word;
             width: 58%;
+        }
+        #textBoxAlt {
+            color: white;
+            font-family: determinationmono;
+            font-size: 6.5vh;
+            z-index: 10;
+            position: relative;
+            left: 5%;
+            top: 11%;
+            text-shadow: 0.156vw 0.156vw #03047C;
+            word-wrap: break-word;
+            width: 80%;
         }
         #textBoxMenu {
             color: white;
@@ -145,12 +166,17 @@
             margin: 0;
             line-height: 1.15;
         }
+        #textBoxAlt * {
+            margin: 0;
+            line-height: 1.15;
+        }
         #textBoxMenu * {
             margin: 0;
         }
         .soul {
             width: 1.667vw;
             padding-right: 1.458vw;
+            image-rendering: pixelated;
         }
         #textBoxMenu > :nth-child(n + 2) img {
             visibility: hidden;
@@ -174,10 +200,14 @@
             z-index: 9999;
             color: white;
             font-family: eightbitoperator;
-            font-size: 12vh;
+            font-size: 20vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center;      
+            flex-direction: column;  
+        }
+        #play span {
+            font-size: 5vh;
         }
         .fadeOut {
             visibility: visible;
@@ -187,7 +217,11 @@
     </style>
     </head>
     <body>
-    <div id="play" onclick="reveal()"><span>Open</span></div>
+    <div id="play" onclick="reveal()">
+        <p>Open</p>
+        <span>(Best viewed on a 1080p/1440p or similar display)</span>
+        <span>Still a WIP; still needs sparkles and other menus(?)</span>
+    </div>
     <div id="top">
         <div id="curtains">
         <img id="curtainL" src="curtainL.png">
@@ -212,12 +246,25 @@
             <span id="darkDollars">$37</span>
         </div>
     </div>
-    <audio id="bgAudio" src="hip_shop.ogg" loop preload></audio>
+    <audio id="bgAudio" loop preload>
+        <source src="hip_shop.mp3" type="audio/mpeg">
+        <source src="hip_shop.ogg" type="audio/ogg">
+    </audio>
+    <audio id="dialogue" preload>
+        <source src="dialogue.mp3" type="audio/mpeg">
+        <source src="dialogue.ogg" type="audio/ogg">
+    </audio>
+    <audio id="exitDialogue" preload>
+        <source src="exitDialogue.mp3" type="audio/mpeg">
+        <source src="exitDialogue.ogg" type="audio/ogg">
+    </audio>
     </body>
     <script>
+        var exiting;
         const souls = document.getElementsByClassName('soul')
         document.onkeydown = moveSoul;
-        let soulPos = 0;
+        var soulPos = 0;
+                // made by IcyNeb
         function moveSoul(e) {
             e = e || window.event;
             if (e.keyCode == '38') { //up
@@ -235,6 +282,10 @@
                 else {
                     soulPos += 1;
                 }
+            } else if (e.keyCode == '90') {
+                if (soulPos == 3) {
+                    exit()
+                }
             }
             for (var i = 0; i < souls.length; i++) {
                 if (i == soulPos) {
@@ -245,43 +296,80 @@
                 }
             }
         }
-        // made by IcyNeb
+
+        function exit() {
+            var exiting = true;
+            let textBoxBG = document.getElementById("textBoxBG");
+            let textBoxMenu = document.getElementById("textBoxMenu");
+            let darkDollars = document.getElementById("darkDollars");
+            let textBox = document.getElementById("textBox");
+            let audio = document.getElementById("exitDialogue");
+            textBoxBG.id = "textBoxBGalt";
+            textBox.id = "textBoxAlt"
+            textBoxMenu.remove();
+            darkDollars.remove();
+            typeWriter = null;
+            typeWriter2 = null;
+            document.getElementById("line1").innerText = "";
+            document.getElementById("line2").innerText = "";
+            audio.play();
+            typeWriter3();
+            document.getElementById("line2").innerText = "";
+            setTimeout(typeWriter4, 900);
+            setTimeout(function(){window.location.href = "/";}, 4000)
+        }
+
         var i = 0;
         var ii = 0;
+        var iii = 0;
+        var iiii = 0;
         var txt1 = '* Welcome to Color Cafe.';
         var txt2 = '* Let us warm your day.';
-        var speed = 35; /* The speed/duration of the effect in milliseconds */
+        var txt3 = '* Please come again.';
+        var txt4 = '* We\'ll be waiting for you with rose-tinted glasses...';
+        var speed = 25; /* The speed/duration of the effect in milliseconds */
 
         function typeWriter() {
-            if (i < txt1.length) {
+            if (i < txt1.length && !exiting) {
                 document.getElementById("line1").innerHTML += txt1.charAt(i);
                 i++;        
-                let audioElement = new Audio("snd_text.wav");
-                audioElement.volume = 0.25;
-                audioElement.play();
                 setTimeout(typeWriter, speed);
             }
         }
         function typeWriter2() {
-            if (ii < txt2.length) {
+            if (ii < txt2.length && !exiting) {
                 document.getElementById("line2").innerHTML += txt2.charAt(ii);
                 ii++;
-                let audioElement = new Audio("snd_text.wav");
-                audioElement.volume = 0.25;
-                audioElement.play();
                 setTimeout(typeWriter2, speed);
             }
         }
-
+        function typeWriter3() {
+            if (iii < txt3.length) {
+                document.getElementById("line1").innerHTML += txt3.charAt(iii);
+                iii++;
+                setTimeout(typeWriter3, speed);
+            }
+        }
+        function typeWriter4() {
+            if (iiii < txt4.length) {
+                document.getElementById("line2").innerHTML += txt4.charAt(iiii);
+                iiii++;
+                setTimeout(typeWriter4, speed);
+            }
+        }
         function reveal() {
             let cover = document.getElementById("play");
+            let audio = document.getElementById("dialogue");
+            let bgAudio = document.getElementById("bgAudio");
+            bgAudio.volume = 0.25;
             cover.className = "fadeOut";
-            let audio = document.getElementById("bgAudio");
-            audio.volume = 0.25;
-            audio.play()
-            setTimeout(typeWriter, 50)
-            setTimeout(typeWriter2, 1000)  
-            setTimeout(function(){cover.remove();}, 700)
+            audio.play(); 
+            bgAudio.play();
+            setTimeout(typeWriter, 50);
+            setTimeout(typeWriter2, 900);
+            setTimeout(function(){cover.remove();}, 700);
         }  
+
+        document.getElementById("darkDollars").innerText = "$" + Math.floor(Math.random() * 1000);
     </script>
 </html>
