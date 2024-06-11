@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />      
+    <title>Color Cafe</title>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        @font-face {
+		    font-family: eightbitoperator;
+		    src: url(/assets/8bitoperatorJVE.woff);
+	    }
+        @font-face {
+		    font-family: determinationmono;
+		    src: url(/assets/DeterminationMonoWeb.woff);
+	    }
+        body {
+            background: url(bg.png) no-repeat center center fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            image-rendering: pixelated;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        #top {
+            display: flex;
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 5;
+        }
+        #curtains {
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 2;
+        }
+        @keyframes horizontalScroll {
+			0% {
+				transform: translateX(0%) translateY(0%);
+			}
+            10% {
+                transform: translateX(-10%) translateY(0%);
+            }
+            20% {
+                transform: translateX(-20%) translateY(5%);
+            }
+            30% {
+                transform: translateX(-30%) translateY(7.5%);
+            }
+            40% {
+                transform: translateX(-40%) translateY(10%);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10%);
+            }
+			60% {
+				transform: translateX(-60%) translateY(10%);
+			}
+            70% {
+				transform: translateX(-70%) translateY(7.5%);
+            }
+            80% {
+                transform: translateX(-80%) translateY(5%);
+            }
+            90% {
+                transform: translateX(-90%) translateY(0%);
+            }
+            100% {
+				transform: translateX(-100%) translateY(0%);
+            }
+		}
+        .dudes {
+            z-index: 1;
+            animation: 15s steps(100) 0s infinite horizontalScroll;
+        }
+        #swatch {
+            z-index: 10;
+            image-rendering: pixelated;
+            height: 50vh;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;      
+        }
+        #box {
+            height: 50vh;
+            background: black;
+            width: 100%;
+            position: absolute;
+            left: 0px;
+            top: 50vh;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+        }
+        #textBoxBG {
+            height: inherit;
+            aspect-ratio: 8 / 3;
+            background: url(textbox.gif) no-repeat center;
+            image-rendering: pixelated;
+            background-size: contain;
+            background-position: center;
+        }
+        #textBox {
+            color: white;
+            font-family: determinationmono;
+            font-size: 6.5vh;
+            z-index: 10;
+            position: relative;
+            left: 3.35vw;
+            top: 6.111vh;
+            text-shadow: 3px 3px #03047C;
+            word-wrap: break-word;
+            width: 58%;
+        }
+        #textBoxMenu {
+            color: white;
+            font-family: eightbitoperator;
+            font-size: 6.5vh;
+            z-index: 15;
+            position: absolute;
+            left: 63%;
+            top: 4vh;
+            line-height: 1.275; 
+        }
+        #textBox * {
+            margin: 0;
+            line-height: 1.15;
+        }
+        #textBoxMenu * {
+            margin: 0;
+        }
+        .soul {
+            width: 1.667vw;
+            padding-right: 1.458vw;
+        }
+        #textBoxMenu > :nth-child(n + 2) img {
+            visibility: hidden;
+        }
+        #darkDollars {
+            color: white;
+            font-family: eightbitoperator;
+            font-size: 6.5vh;
+            position: absolute;
+            left: 61.5%;
+            top: 38vh;
+        }
+        #play {
+            background: #000000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            overflow: auto;
+            z-index: 9999;
+            color: white;
+            font-family: eightbitoperator;
+            font-size: 12vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .fadeOut {
+            visibility: visible;
+            opacity: 0;
+            transition: visibility 0s 2s, opacity 0.5s linear;
+        }
+    </style>
+    </head>
+    <body>
+    <div id="play" onclick="reveal()"><span>Open</span></div>
+    <div id="top">
+        <div id="curtains">
+        <img id="curtainL" src="curtainL.png">
+        <img id="curtainR" src="curtainR.png">
+    </div>
+    <img class="dudes" src="dudes.png">
+    <img class="dudes" src="dudes.png">
+    <img id="swatch" src="swatch.gif">
+    </div>
+    <div id="box">
+        <div id="textBoxBG">
+            <div id="textBox">
+                <p id="line1"></p>
+                <p id="line2"></p>
+            </div>
+            <div id="textBoxMenu">
+                <div><img class="soul" src="soul.png"><span>Buy</span></div>
+                <div><img class="soul" src="soul.png"><span>Sell</span></div>
+                <div><img class="soul" src="soul.png"><span>Talk</span></div>
+                <div><img class="soul" src="soul.png"><span>Exit</span></div>
+            </div>
+            <span id="darkDollars">$37</span>
+        </div>
+    </div>
+    <audio id="bgAudio" src="hip_shop.ogg" loop preload></audio>
+    </body>
+    <script>
+        const souls = document.getElementsByClassName('soul')
+        document.onkeydown = moveSoul;
+        let soulPos = 0;
+        function moveSoul(e) {
+            e = e || window.event;
+            if (e.keyCode == '38') { //up
+                if (soulPos == 0) {
+                    soulPos = souls.length - 1;
+                }
+                else {
+                    soulPos -= 1;
+                }
+            }
+            else if (e.keyCode == '40') { //down
+                if (soulPos == souls.length - 1) {
+                    soulPos = 0;
+                }
+                else {
+                    soulPos += 1;
+                }
+            }
+            for (var i = 0; i < souls.length; i++) {
+                if (i == soulPos) {
+                    souls[i].style.visibility = 'visible';
+                }
+                else {
+                    souls[i].style.visibility = 'hidden';
+                }
+            }
+        }
+        // made by IcyNeb
+        var i = 0;
+        var ii = 0;
+        var txt1 = '* Welcome to Color Cafe.';
+        var txt2 = '* Let us warm your day.';
+        var speed = 35; /* The speed/duration of the effect in milliseconds */
+
+        function typeWriter() {
+            if (i < txt1.length) {
+                document.getElementById("line1").innerHTML += txt1.charAt(i);
+                i++;        
+                let audioElement = new Audio("snd_text.wav");
+                audioElement.volume = 0.25;
+                audioElement.play();
+                setTimeout(typeWriter, speed);
+            }
+        }
+        function typeWriter2() {
+            if (ii < txt2.length) {
+                document.getElementById("line2").innerHTML += txt2.charAt(ii);
+                ii++;
+                let audioElement = new Audio("snd_text.wav");
+                audioElement.volume = 0.25;
+                audioElement.play();
+                setTimeout(typeWriter2, speed);
+            }
+        }
+
+        function reveal() {
+            document.getElementById("play").className = "fadeOut";
+            let audio = document.getElementById("bgAudio");
+            audio.volume = 0.25;
+            audio.play()
+            setTimeout(typeWriter, 50)
+            setTimeout(typeWriter2, 1000)  
+        }  
+    </script>
+</html>
