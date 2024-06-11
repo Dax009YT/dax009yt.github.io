@@ -261,6 +261,7 @@
     </body>
     <script>
         var exiting;
+        var allowExiting = false;
         const souls = document.getElementsByClassName('soul')
         document.onkeydown = moveSoul;
         var soulPos = 0;
@@ -283,7 +284,7 @@
                     soulPos += 1;
                 }
             } else if (e.keyCode == '90') {
-                if (soulPos == 3) {
+                if (soulPos == 3 && allowExiting) {
                     exit()
                 }
             }
@@ -368,6 +369,7 @@
             setTimeout(typeWriter, 50);
             setTimeout(typeWriter2, 900);
             setTimeout(function(){cover.remove();}, 700);
+            setTimeout(function(){allowExiting = true;}, 2000);
         }  
 
         document.getElementById("darkDollars").innerText = "$" + Math.floor(Math.random() * 1000);
