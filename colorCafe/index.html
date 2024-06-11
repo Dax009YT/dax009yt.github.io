@@ -2,6 +2,7 @@
 <html>
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />      
+    <link rel="icon" type="image/x-icon" href="dr.png">
     <title>Color Cafe</title>
     <style>
         html {
@@ -113,6 +114,7 @@
             image-rendering: pixelated;
             background-size: contain;
             background-position: center;
+            display: flex;
         }
         #textBox {
             color: white;
@@ -120,8 +122,8 @@
             font-size: 6.5vh;
             z-index: 10;
             position: relative;
-            left: 3.35vw;
-            top: 6.111vh;
+            left: 5%;
+            top: 11%;
             text-shadow: 3px 3px #03047C;
             word-wrap: break-word;
             width: 58%;
@@ -131,10 +133,13 @@
             font-family: eightbitoperator;
             font-size: 6.5vh;
             z-index: 15;
-            position: absolute;
-            left: 63%;
-            top: 4vh;
+            position: relative;
+            left: 12.5%;
+            top: 7%;
+            width: fit-content;
             line-height: 1.275; 
+            height: fit-content;
+            gap: 60px;
         }
         #textBox * {
             margin: 0;
@@ -154,9 +159,9 @@
             color: white;
             font-family: eightbitoperator;
             font-size: 6.5vh;
-            position: absolute;
-            left: 61.5%;
-            top: 38vh;
+            position: relative;
+            left: -2.5%;
+            top: 75%;
         }
         #play {
             background: #000000;
@@ -269,13 +274,14 @@
         }
 
         function reveal() {
-            document.getElementById("play").className = "fadeOut";
+            let cover = document.getElementById("play");
+            cover.className = "fadeOut";
             let audio = document.getElementById("bgAudio");
             audio.volume = 0.25;
             audio.play()
             setTimeout(typeWriter, 50)
             setTimeout(typeWriter2, 1000)  
-            document.getElementById("play").remove();
+            setTimeout(function(){cover.remove();}, 700)
         }  
     </script>
 </html>
