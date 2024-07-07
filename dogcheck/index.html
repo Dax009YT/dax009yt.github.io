@@ -1,0 +1,53 @@
+<html>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="dogcheck">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="dr.png">
+    <title>&lrm;</title>
+    <link rel="icon" type="image/x-icon" href="dr.ico">
+    <style>
+        html, body {
+            background-color: black;
+            max-height: 100%;
+            overflow: hidden;
+        }
+        #dog {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            height: 10vh;
+            image-rendering: pixelated;
+            cursor: grab;
+        }
+    </style>
+    <body>
+        <audio id="dogCheck" src="dogcheck.mp3" loop>
+            <source src="dogcheck.mp3" type="audio/mpeg">
+            <source src="dogcheck.ogg" type="audio/ogg">
+            Your browser does not support the audio tag. Dumbass.
+        </audio>
+        <img id="dog" src="annoyingdog.gif">
+    </body>
+    <script>
+        var dog = document.getElementById("dog");
+        var dogCheck = document.getElementById("dogCheck");
+        var isPlaying = false;
+        function togglePlay() {
+            isPlaying ? dogCheck.pause() : dogCheck.play();
+        };
+
+        dogCheck.onplaying = function() {
+            isPlaying = true;
+        };
+        dogCheck.onpause = function() {
+            isPlaying = false;
+        };
+
+        dog.addEventListener("click", togglePlay)
+    </script>
+</html>

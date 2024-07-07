@@ -35,7 +35,28 @@
 			background-attachment: fixed;
 		}
 	}
-    
+	button {
+			background-color: #4681f4;
+			background: linear-gradient(135deg, rgba(59,0,255,1) 0%, rgba(0,148,255,1) 100%);
+			border-radius: 3px;
+			color: white; 
+			border: none;
+			margin: 2px;
+			padding-left: 5px;
+			padding-right: 5px;
+			font-size: 24px;
+			transition: all 0.2s ease;
+            font-family: eightbitoperator, 'Source Sans Pro';
+		} 
+	button:active {
+		background: #0094FF;
+	}
+	button:hover {
+		transform: scale(1.05) perspective(1px)
+	}
+	a {
+		color: #FF6A00;
+	}
 </style>
 <script>
     const button = document.getElementById("ie404");
@@ -61,5 +82,6 @@
 <button onclick="history.back();">Go back</button>
 <button onclick="window.location.href = 'https://dax009.ink';">Go home</button>
 <button onclick="window.location.href = 'https://youtube.com/Dax009';">Dax009 on YouTube</button>
+
 </body>
 </html>

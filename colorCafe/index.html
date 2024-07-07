@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />      
+    <link rel="icon" type="image/x-icon" href="dr.png">
+    <title>Color Cafe</title>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        @font-face {
+		    font-family: eightbitoperator;
+		    src: url(/assets/8bitoperatorJVE.woff);
+	    }
+        @font-face {
+		    font-family: determinationmono;
+		    src: url(/assets/DeterminationMonoWeb.woff);
+	    }
+        body {
+            background: url(bg.png) no-repeat center center fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            image-rendering: pixelated;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        #top {
+            display: flex;
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 5;
+        }
+        #curtains {
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 2;
+        }
+        @keyframes horizontalScroll {
+			0% {
+				transform: translateX(0%) translateY(0%);
+			}
+            10% {
+                transform: translateX(-10%) translateY(0%);
+            }
+            20% {
+                transform: translateX(-20%) translateY(5%);
+            }
+            30% {
+                transform: translateX(-30%) translateY(7.5%);
+            }
+            40% {
+                transform: translateX(-40%) translateY(10%);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10%);
+            }
+			60% {
+				transform: translateX(-60%) translateY(10%);
+			}
+            70% {
+				transform: translateX(-70%) translateY(7.5%);
+            }
+            80% {
+                transform: translateX(-80%) translateY(5%);
+            }
+            90% {
+                transform: translateX(-90%) translateY(0%);
+            }
+            100% {
+				transform: translateX(-100%) translateY(0%);
+            }
+		}
+        .dudes {
+            z-index: 1;
+            animation: 15s steps(100) 0s infinite horizontalScroll;
+        }
+        #swatch {
+            z-index: 10;
+            image-rendering: pixelated;
+            height: 50vh;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;      
+        }
+        #box {
+            height: 50vh;
+            background: black;
+            width: 100%;
+            position: absolute;
+            left: 0px;
+            top: 50vh;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+        }
+        #textBoxBG {
+            height: inherit;
+            aspect-ratio: 8 / 3;
+            background: url(textbox.gif) no-repeat center;
+            image-rendering: pixelated;
+            background-size: contain;
+            background-position: center;
+            display: flex;
+        }
+        #textBoxBGalt {
+            height: inherit;
+            aspect-ratio: 8 / 3;
+            background: url(fullTextbox.gif) no-repeat center;
+            image-rendering: pixelated;
+            background-size: contain;
+            background-position: center;
+            display: flex;
+        }
+        #textBox {
+            color: white;
+            font-family: determinationmono;
+            font-size: 6.5vh;
+            z-index: 10;
+            position: relative;
+            left: 5%;
+            top: 11%;
+            text-shadow: 0.156vw 0.156vw #03047C;
+            word-wrap: break-word;
+            width: 58%;
+            height: fit-content;
+        }
+        #textBoxAlt {
+            color: white;
+            font-family: determinationmono;
+            font-size: 6.5vh;
+            z-index: 10;
+            position: relative;
+            left: 5%;
+            top: 11%;
+            text-shadow: 0.156vw 0.156vw #03047C;
+            word-wrap: break-word;
+        }
+        #textBoxMenu {
+            color: white;
+            font-family: eightbitoperator;
+            font-size: 6.5vh;
+            z-index: 15;
+            position: relative;
+            top: 7%;
+            line-height: 1.275; 
+            height: fit-content;
+            gap: 60px;
+        }
+        .textBoxAltExiting {
+            width: 71%;
+        }
+        .textBoxAltDialogue {
+            width: 85%;
+        }
+        .textBoxMenuDefault {
+            left: 12.5%;
+            width: fit-content;
+        }
+        .textBoxMenuTalk {
+            left: 8%;
+            width: 42.375%;
+        }
+        #textBox * {
+            margin: 0;
+            line-height: 1.15;
+        }
+        #textBoxAlt * {
+            margin: 0;
+            line-height: 1.15;
+        }
+        #textBoxMenu * {
+            margin: 0;
+        }
+        .soul {
+            width: 1.667vw;
+            padding-right: 1.458vw;
+            image-rendering: pixelated;
+        }
+        #textBoxMenu > :nth-child(n + 2) img {
+            visibility: hidden;
+        }
+        #darkDollars {
+            color: white;
+            font-family: eightbitoperator;
+            font-size: 6.5vh;
+            position: relative;
+            left: -2.5%;
+            top: 75%;
+            height: fit-content;
+        }
+        #textBoxSecondary {
+            color: white;
+            font-family: determinationmono;
+            font-size: 6.5vh;
+            position: relative;
+            top: 8%;
+            left: 26.25%;
+            display: none;
+            width: 29%;
+            line-height: 1.1; 
+            text-shadow: 0.156vw 0.156vw #03047C;
+            height: fit-content;
+        }
+        #play {
+            background: #000000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            overflow: auto;
+            z-index: 9999;
+            color: white;
+            font-family: eightbitoperator;
+            font-size: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;      
+            flex-direction: column;  
+        }
+        #exit {
+            background: #000000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            overflow: auto;
+            z-index: 99999;
+            opacity: 0;
+        }
+        #play span {
+            font-size: 5vh;
+        }
+        .fadeOut {
+            visibility: visible;
+            opacity: 0;
+            transition: visibility 0s 2s, opacity 0.5s linear;
+        }
+        .indent {
+            padding-left: 1em;
+            text-indent: -1em;
+            display: inline-block;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .fadeIn {
+            animation: fadeIn linear 0.5s;
+            animation-fill-mode: forwards;
+        }
+    </style>
+    </head>
+    <body>
+    <div id="play" onclick="reveal()">
+        <p>Open</p>
+        <span>(Best viewed on a 1080p/1440p or similar display)</span>
+        <span>Still a WIP; still needs sparkles and other menus(?)</span>
+        <span>All assets copyright <a target="_blank" href="https://deltarune.com">Toby Fox/Deltarune</a> (Unaffiliated)</span>
+    </div>
+    <div id="exitHidden"></div>
+    <div id="top">
+        <div id="curtains">
+        <img id="curtainL" src="curtainL.png">
+        <img id="curtainR" src="curtainR.png">
+    </div>
+    <img class="dudes" src="dudes.png">
+    <img class="dudes" src="dudes.png">
+    <img id="swatch" src="swatch.gif">
+    </div>
+    <div id="box">
+        <div id="textBoxBG">
+            <div id="textBox">
+                <p id="line1"></p>
+                <p id="line2" class="indent"></p>
+            </div>
+            <div id="textBoxMenu" class="textBoxMenuDefault">
+                <div><img class="soul" src="soul.png"><span class="menuItem">Buy</span></div>
+                <div><img class="soul" src="soul.png"><span class="menuItem">Sell</span></div>
+                <div><img class="soul" src="soul.png"><span class="menuItem">Talk</span></div>
+                <div><img class="soul" src="soul.png"><span class="menuItem">Exit</span></div>
+            </div>
+            <div id="textBoxSecondary">
+                <span id="line3"></span>
+            </div>
+            <span id="darkDollars">$37</span>
+        </div>
+    </div>
+    <audio id="bgAudio" loop preload>
+        <source src="hip_shop.mp3" type="audio/mpeg">
+        <source src="hip_shop.ogg" type="audio/ogg">
+    </audio>
+    <audio id="dialogue" preload>
+        <source src="dialogue.mp3" type="audio/mpeg">
+        <source src="dialogue.ogg" type="audio/ogg">
+    </audio>
+    <audio id="sideDialogue" preload>
+        <source src="sideDialogue.mp3" type="audio/mpeg">
+        <source src="sideDialogue.ogg" type="audio/ogg">
+    </audio>
+    <audio id="exitDialogue" preload>
+        <source src="exitDialogue.mp3" type="audio/mpeg">
+        <source src="exitDialogue.ogg" type="audio/ogg">
+    </audio>
+    <audio id="blue" preload>
+        <source src="blue.mp3" type="audio/mpeg">
+        <source src="blue.ogg" type="audio/ogg">
+    </audio>
+    <audio id="abt1" preload>
+        <source src="abt1.mp3" type="audio/mpeg">
+        <source src="abt1.ogg" type="audio/ogg">
+    </audio>
+    <audio id="abt2" preload>
+        <source src="abt2.mp3" type="audio/mpeg">
+        <source src="abt2.ogg" type="audio/ogg">
+    </audio>
+    <audio id="abt3" preload>
+        <source src="abt3.mp3" type="audio/mpeg">
+        <source src="abt3.ogg" type="audio/ogg">
+    </audio>
+    <audio id="abt4" preload>
+        <source src="abt4.mp3" type="audio/mpeg">
+        <source src="abt4.ogg" type="audio/ogg">
+    </audio>
+    <audio id="abt5" preload>
+        <source src="abt5.mp3" type="audio/mpeg">
+        <source src="abt5.ogg" type="audio/ogg">
+    </audio>
+    </body>
+    <script>
+        var exiting;
+        var allowExiting = false; // Allow exiting - should turn true after 2s?
+        var inMenu = false; // In a menu - currently only Talk menu
+        var inDialogue = false; // In a Dialogue-only box
+        var talking = false; // Swatch currently speaking
+        var dLine = 1; // Line of dialogue
+        var line1 = document.getElementById("line1");
+        var line2 = document.getElementById("line2");
+
+        const souls = document.getElementsByClassName('soul');
+        var soulPos = 0;
+        document.onkeydown = moveSoul;
+                // made by IcyNeb
+        function moveSoul(e) {
+            e = e || window.event;
+            if (e.keyCode == '38') { //up
+                if (soulPos == 0) {
+                    soulPos = souls.length - 1;
+                }
+                else {
+                    soulPos -= 1;
+                }
+            }
+            else if (e.keyCode == '40') { //down
+                if (soulPos == souls.length - 1) {
+                    soulPos = 0;
+                }
+                else {
+                    soulPos += 1;
+                }
+            } else if (e.keyCode == '90' || e.keyCode == '13') { // Menu stuff
+                if (soulPos == 3 && allowExiting && !inMenu && !inDialogue) {
+                    exit();
+                } else if (soulPos == 2 && !inMenu && !inDialogue) {
+                    talkMenu();
+                } else if (inMenu && !inDialogue) {
+                    if (soulPos == 4) {
+                        exitToMenu();
+                    } else if (soulPos == 0 && !talking && !inDialogue) {
+                        dialogueAboutYourself();
+                    }
+                } else if (soulPos == 0 && inDialogue && !talking) {
+                    dialogueAboutYourself(dLine++);
+                }
+            }
+            for (var i = 0; i < souls.length; i++) {
+                if (i == soulPos) {
+                    souls[i].style.visibility = 'visible';
+                }
+                else {
+                    souls[i].style.visibility = 'hidden';
+                }
+            }
+        }
+
+        function talkMenu() {
+            inMenu = true;
+            let textBox = document.getElementById("textBox");
+            let textBoxSecondary = document.getElementById("textBoxSecondary");
+            let textBoxMenu = document.getElementById("textBoxMenu");
+            let menuItems = document.getElementsByClassName("menuItem");
+            let initialAudio = document.getElementById("dialogue");
+            let sideDialogue = document.getElementById("sideDialogue");
+            let blue = document.getElementById("blue");
+            let sideLine = document.getElementById("line3");
+            sideLine.innerText = "";
+            initialAudio.pause();
+            initialAudio.currentTime = 0;
+            blue.pause();
+            blue.currentTime = 0;
+            textBoxSecondary.style.display = "block";
+            textBoxMenu.innerHTML += '<div><img class="soul" src="soul.png"><span class="menuItem">Exit</span></div>';
+            menuItems[0].innerText = "About Yourself";
+            menuItems[1].innerText = "Mission Statement";
+            menuItems[2].innerText = "Rouxls Kaard";
+            menuItems[3].innerText = "Basement Robot";
+            menuItems[3].style.color = "#FFFF00";
+            menuItems[4].innerText = "Exit";
+            textBox.style.display = "none";
+            textBoxMenu.classList.add("textBoxMenuTalk");
+            soulPos = 0;
+            souls[0].style.visibility = 'visible';
+            souls[2].style.visibility = 'visible';
+            sideDialogue.play();
+            typeWriterT(0, txt5, sideLine);
+        }
+
+        function dialogueAboutYourself(line) {
+            let textBoxBG = document.getElementById("textBoxBG") || document.getElementById("textBoxBGalt");;
+            let textBox = document.getElementById("textBox") || document.getElementById("textBoxAlt");;
+            let textBoxSecondary = document.getElementById("textBoxSecondary");
+            let textBoxMenu = document.getElementById("textBoxMenu");
+            let darkDollars = document.getElementById("darkDollars");
+            let abt1 = document.getElementById("abt1");
+            let abt2 = document.getElementById("abt2");
+            let abt3 = document.getElementById("abt3");
+            let abt4 = document.getElementById("abt4");
+            let abt5 = document.getElementById("abt5");
+            if (!inDialogue) {
+                inDialogue = true;
+                talking = true;
+                line1.innerText = "";
+                line2.innerText = "";
+                textBoxSecondary.style.display = "none";
+                textBox.style.display = "block";
+                textBoxMenu.style.display = "none";
+                darkDollars.style.display = "none";
+                textBoxBG.id = "textBoxBGalt";
+                textBox.id = "textBoxAlt";
+                textBox.classList.add("textBoxAltDialogue", "indent");
+                textBox.style.width = "65%";
+                typeWriterT(0, "* Ah,              forgive me for not introducing myself sooner,              young masters.", line1); // Yes this is my solution and you must deal with it
+                abt1.play();
+                setTimeout(function(){talking = false}, 2424);
+            } else if (line === 2) {
+                talking = true;
+                textBox.style.width = "75%";
+                line1.innerText = "";
+                typeWriterT(0, "* I am Swatch,              Our Lady Grace\'s head butler.", line1);
+                abt2.play();
+                setTimeout(function(){talking = false}, 1524);
+            } else if (line === 3) {
+                talking = true;
+                textBox.style.width = "75%";
+                line1.innerText = "";
+                typeWriterT(0, "* When we are not attending to her needs,               I and the Queen's other staff,", line1);
+                abt3.play();
+                setTimeout(function(){talking = false}, 2424);
+            } else if (line === 4) {
+                talking = true;
+                textBox.style.width = "80%";
+                line1.innerText = "";
+                typeWriterT(0, "* Use this room as our humble yet       colorful gift-shop-slash-cafe.", line1);
+                abt4.play();
+                setTimeout(function(){talking = false}, 2024);
+            } else if (line === 5) {
+                talking = true;
+                textBox.style.width = "80%";
+                line1.innerText = "";
+                typeWriterT(0, "* Please,               shop to your heart's content.       We are eager to serve your any wish.", line1);
+                abt5.play();
+                setTimeout(function(){talking = false}, 2632);
+            } else if (line === 6) {
+                inDialogue = false;
+                talking = false;
+                textBoxSecondary.style.display = "block";
+                textBox.style.display = "none";
+                textBoxMenu.style.display = "block";
+                darkDollars.style.display = "block";
+                textBoxBG.id = "textBoxBG";
+                textBox.id = "textBox";
+                textBox.style.width = "";
+                textBox.classList.remove("textBoxAltDialogue", "indent");
+                dLine = 1;
+            }
+        }
+
+        function exitToMenu() {
+            allowExiting = false
+            let menuItems = document.getElementsByClassName("menuItem");
+            let textBox = document.getElementById("textBox");
+            let textBoxMenu = document.getElementById("textBoxMenu");
+            let textBoxSecondary = document.getElementById("textBoxSecondary");
+            let sideDialogue = document.getElementById("sideDialogue");
+            let sound = document.getElementById("blue");
+            textBox.style.display = "block";
+            menuItems[0].innerText = "Buy";
+            menuItems[1].innerText = "Sell";
+            menuItems[2].innerText = "Talk";
+            menuItems[3].innerText = "Exit";
+            soulPos = 2;
+            souls[4].style.visibility = 'hidden';
+            sideDialogue.pause();
+            sideDialogue.currentTime = 0;
+            menuItems[3].style.color = "white";
+            menuItems[4].parentElement.remove();
+            textBoxSecondary.style.display = "none";
+            textBoxMenu.className = "textBoxMenuDefault";
+            line1.innerText = "";
+            line2.innerText = "";
+            blue.play();
+            setTimeout(typeWriterT, 0, 0, txt6, line1);
+            line2.innerText = "";
+            setTimeout(typeWriterT, 650, 0, txt7, line2);
+            inMenu = false;
+            setTimeout(function(){allowExiting = true; talking = false;}, 1500);
+        }
+
+        function exit() {
+            var exiting = true;
+            let textBoxBG = document.getElementById("textBoxBG");
+            let textBoxMenu = document.getElementById("textBoxMenu");
+            let darkDollars = document.getElementById("darkDollars");
+            let textBox = document.getElementById("textBox");
+            let audio = document.getElementById("exitDialogue");
+            let cover = document.getElementById("exitHidden");
+            let initialAudio = document.getElementById("dialogue");
+            let blue = document.getElementById("blue");
+            textBoxBG.id = "textBoxBGalt";
+            textBox.id = "textBoxAlt"
+            textBox.className = "textBoxAltExiting"
+            textBoxMenu.remove();
+            darkDollars.remove();
+            typeWriter = null;
+            typeWriter2 = null;
+            initialAudio.pause();
+            blue.pause();
+            line1.innerText = "";
+            line2.innerText = "";
+            audio.play();
+            talking = true;
+            typeWriterT(0, txt3, line1);
+            line2.innerText = "";
+            setTimeout(typeWriterT, 900, 0, txt4, line2);
+            setTimeout(function(){
+                cover.id = "exit";
+                cover.classList.add("fadeIn");
+                line1.innerText = "";
+                line2.innerText = "";
+            }, 3000);
+            setTimeout(function(){window.location.href = "/";}, 4000);
+            // Only disable above for development!
+        }
+
+        var txt1 = '* Welcome to Color Cafe.';
+        var txt2 = '* Let us warm your day.';
+        var txt3 = '* Please come again.';
+        var txt4 = '* We\'ll be waiting for you with rose-tinted glasses...';
+        var txt5 = 'Chatting would be our pleasure.'
+        var txt6 = '* Don\'t be blue.'
+        var txt7 = '* We\'re here for you.'
+        var speed = 25; /* The speed/duration of the effect in milliseconds */
+
+        function typeWriterT(i, txt, element) {
+            if (i < txt.length && !exiting) {
+                element.innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriterT, speed, i, txt, element)
+            }
+        }
+        function reveal() {
+            let cover = document.getElementById("play");
+            cover.onclick = "";
+            let audio = document.getElementById("dialogue");
+            let bgAudio = document.getElementById("bgAudio");
+            bgAudio.volume = 0.25;
+            cover.className = "fadeOut";
+            audio.play(); 
+            bgAudio.play();
+            /* setTimeout(typeWriter, 50);
+            setTimeout(typeWriter2, 900); */
+            setTimeout(typeWriterT, 50, 0, txt1, line1);
+            setTimeout(typeWriterT, 900, 0, txt2, line2);
+            talking = true;
+            setTimeout(function(){cover.remove();}, 700);
+            setTimeout(function(){allowExiting = true; talking = false;}, 2000);
+        }  
+
+        document.getElementById("darkDollars").innerText = "$" + Math.floor(Math.random() * 1000);
+    </script>
+</html>
