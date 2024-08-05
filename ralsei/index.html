@@ -1,0 +1,53 @@
+<html>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="dogcheck">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="dr.png">
+    <title>&lrm;</title>
+    <link rel="icon" type="image/x-icon" href="dr.ico">
+    <style>
+        html, body {
+            background-color: black;
+            max-height: 100%;
+            overflow: hidden;
+        }
+        #theRal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            height: 20vh;
+            image-rendering: pixelated;
+            cursor: grab;
+        }
+    </style>
+    <body>
+        <audio id="music" src="castletown_empty.mp3" loop>
+            <source src="castletown_empty.mp3" type="audio/mpeg">
+            <source src="castletown_empty.ogg" type="audio/ogg">
+            Your browser does not support the audio tag. Dumbass.
+        </audio>
+        <img id="theRal" src="ralsei-ralsei-spin.gif">
+    </body>
+    <script>
+        var theRal = document.getElementById("theRal");
+        var music = document.getElementById("music");
+        var isPlaying = false;
+        function togglePlay() {
+            isPlaying ? music.pause() : music.play();
+        };
+
+        music.onplaying = function() {
+            isPlaying = true;
+        };
+        music.onpause = function() {
+            isPlaying = false;
+        };
+
+        theRal.addEventListener("click", togglePlay)
+    </script>
+</html>
