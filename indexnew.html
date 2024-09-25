@@ -328,7 +328,9 @@
 
 <script>
     window.onload = function() {
-        document.querySelector('.menuLinks').scrollLeft = 0;
+        setTimeout(function() {
+            document.querySelector('.menuLinks').scrollLeft = 0;
+        }, 100); 
     }
 
     const discordWidget = document.getElementsByClassName("discordWidget")[0];
