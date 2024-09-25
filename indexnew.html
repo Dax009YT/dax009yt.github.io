@@ -241,6 +241,7 @@
 
 <body>
     <a href="https://dax009.ink"><img id="logo" src="assets/headerimgs/4.png" alt="Dax009's Website logo"></a><br>
+    <span id="debug">debug</span>
     <div class="menuLinks">
         <a href="/">Home</a>
         <a href="/about/">About</a>
@@ -327,11 +328,11 @@
 </footer>
 
 <script>
-    window.onload = function() {
-        setTimeout(function() {
-            document.querySelector('.menuLinks').scrollLeft = 0;
-        }, 100); 
-    }
+    const debugText = document.getElementById("debug");
+    const theScrollerrrr = document.getElementsByClassName("menuLinks")[0];
+    setInterval(function () {
+        debugText.innerText = theScrollerrrr.scrollLeft;
+    }, 100)
 
     const discordWidget = document.getElementsByClassName("discordWidget")[0];
     const inviteAnchor = document.getElementById("invite");
