@@ -327,6 +327,10 @@
 </footer>
 
 <script>
+    window.onload = function() {
+        document.querySelector('.menuLinks').scrollLeft = 0;
+    }
+
     const discordWidget = document.getElementsByClassName("discordWidget")[0];
     const inviteAnchor = document.getElementById("invite");
     const currentlyOnline = document.getElementById("currentlyOnline");
