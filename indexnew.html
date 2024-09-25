@@ -97,7 +97,7 @@
 	}
     .menuLinks {
         min-height: 40px;
-        max-width: 100vw;
+        max-width: 100%;
         width: 1280px;
         background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,148,255,1) 100%);
         margin: 10px auto;
@@ -255,7 +255,6 @@
         box-shadow: 1px 2px 3px rgba(0,0,0,.5);
         text-align: left;
     }
-    .dropdown:hover .dropdown:focus .dropdownLinks {display: flex;}
 
     /* .otherPages {
         border: 4px solid rgba(0,0,0,0.5);
@@ -280,7 +279,7 @@
         <a href="https://daxbot.dax009.ink">DaxBot</a>
         <a href="https://axdaxis.dev/files/">Files</a>
         <div class="dropdown">
-            <a href="#" id="dropdownToggle">More</a>
+            <a href="#" onclick="toggleDropdown()" id="dropdownToggle">More</a>
             <div class="dropdownLinks">
                 <a href="https://doxmyself.dax009.ink">doxmyself</a>
                 <a href="/dogcheck/">dogcheck [© undertale]</a>
@@ -288,7 +287,9 @@
                 <a href="/ralsei/">ralsei [© deltarune]</a>
                 <a href="/mcupdatearchive/">mcupdate.tumblr.com archive</a>
                 <a href="/privacypolicycws/">Chrome Web Store extension privacy policy</a>
-                <a href="/wholesome/">wholesome</a>
+                <a href="https://gsites.beta.dax009.ink">Old Google Sites website</a>
+                <a href="https://tumblr.dax009.ink">Tumblr</a>
+                <a href="https://usploit.dax009.ink">Usploit [Outdated]</a>
             </div>
         </div>
         <a target="_blank" href="https://youtube.com/Dax009"><img src="/images/yt.svg" class="headerIcon"></a>
@@ -301,7 +302,7 @@
             <div class="about">
                 <img src="/images/logo500px.png"/>
                 <div>
-                    <span>Hey! I'm Dax009.</span>
+                    <span>Hey! I'm Dax009. </span><small>Dax for short. Maybe. ¯\_(ツ)_/¯</small>
                     <p>I'm just your average dude, basically. I enjoy coding (sometimes), makin' videos, screwing with tech, and more. Wanna know more (borderline useless) info? <a href="/about/">Check this out!</a></p>
                     <span>Stuff I've made:</span>
                     <span><a href="https://chromewebstore.google.com/detail/roblox-audio-downloader/beonfijfkkhcdidijfmiohnajkpinled?hl=en">ROBLOX Audio Downloader</a>, <a href="https://daxbot.dax009.ink">DaxBot</a> <a href="https://discord.com/oauth2/authorize?client_id=491024648696233984">(invite)</a>, <a href="https://youtube.com/Dax009">hordes of YouTube videos</a>, and <a href="https://github.com/dax009yt/dax009yt.github.io">this website.</a></span>
@@ -365,6 +366,16 @@
 </footer>
 
 <script>
+    const dropDownToggle = document.getElementById("dropdownToggle");
+    const dropdownLinks = document.getElementsByClassName("dropdownLinks")[0];
+    function toggleDropdown() {
+        if (window.getComputedStyle(dropdownLinks).display == 'none') {
+            dropdownLinks.style.display = 'flex';
+        } else {
+            dropdownLinks.style.display = 'none';
+        }
+    };
+
     const discordWidget = document.getElementsByClassName("discordWidget")[0];
     const inviteAnchor = document.getElementById("invite");
     const currentlyOnline = document.getElementById("currentlyOnline");
