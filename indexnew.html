@@ -106,12 +106,11 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        overflow-y: auto;
         gap: 10px;
         padding-left: 8px;
         padding-right: 8px;
         box-sizing: border-box;
-        overflow-y: scroll;
+        overflow-x: scroll;
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
@@ -133,7 +132,7 @@
     .main {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         max-width: 1280px;
         text-align: center;
         margin: auto;
@@ -143,24 +142,29 @@
         border: 4px solid rgba(0,0,0,0.5);
         padding: 8px 8px 8px 8px;
         height: 100%;
-        font-size: 24px;
+        max-height: 100%;
+        font-size: 22px;
         text-align: left;
         display: flex;
         gap: 8px;
         flex-grow: 1;
-        margin-bottom: auto;
+        max-width: 100%;
+        margin-bottom: 8px;
     }
     .about > img {
         height: 150px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: inline-block;
+        vertical-align: middle;
     }
     @media (max-width: 1280px) {
         .main {
             flex-wrap: wrap;
-        }
-        .about {
             margin-left: 8px;
             margin-right: 8px;
+        }
+        .sidebar {
+            width: 100%;
         }
     }
     .discordWidget {
@@ -174,6 +178,7 @@
         gap: 4px;
         display: flex;
         flex-direction: column;
+        margin-top: 8px;
     }
     .widgetMember {
         font-size: 20px;
@@ -182,11 +187,55 @@
         gap: 8px;
         border: 2px solid black;
         padding: 2px 2px 2px 2px;
+        border-radius: 4px;
+        text-wrap: nowrap;
     }
     .widgetMember img {
         max-height: 24px;
         border-radius: 4px;
     }
+    .embeds {
+        border: 4px solid rgba(0,0,0,0.5);
+        padding: 8px 8px 8px 8px;
+        height: 100%;
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+        /* margin-bottom: 8px; */
+    }
+    .ytEmbeds {
+		aspect-ratio: 16/9;
+		border-radius: 5px; 
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+    .ytPlaylistEmbed {
+        display: flex;
+        flex-direction: column;
+    }
+    #playlistselection {
+		width: inherit; 
+		background: #FF6A00;
+		color: white;
+		border-radius: 3px;
+        font-size: 22px;
+        font-family: eightbitoperator;
+	}
+    .firstSection {
+        max-width: 100%;
+        margin-bottom: auto;
+    }
+    .sidebar {
+        max-width: 100%;
+    }
+    /* .otherPages {
+        border: 4px solid rgba(0,0,0,0.5);
+        padding: 8px 8px 8px 8px;
+        height: 100%;
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+    } */
 </style>
 </head>
 
@@ -208,18 +257,51 @@
         <a target="_blank" href="mailto:dax009business@hotmail.com"><img src="/images/envelope-regular.svg" class="headerIcon invert"></a>
     </div>
     <div class="main">
-        <div class="about">
-            <img src="/images/logo500px.png"/>
-            <div>
-                <span>Hey! I'm Dax009.</span><br>
-                <p>There's gonna be more text here, I swear 🙏</p>
+        <div class="firstSection">
+            <div class="about">
+                <img src="/images/logo500px.png"/>
+                <div>
+                    <span>Hey! I'm Dax009.</span>
+                    <p>I'm just your average dude, basically. I enjoy coding (sometimes), makin' videos, screwing with tech, and more. Wanna know more (borderline useless) info? <a href="/about/">Check this out!</a></p>
+                    <span>Stuff I've made:</span>
+                    <span><a href="https://chromewebstore.google.com/detail/roblox-audio-downloader/beonfijfkkhcdidijfmiohnajkpinled?hl=en">ROBLOX Audio Downloader</a>, <a href="https://daxbot.dax009.ink">DaxBot</a> <a href="https://discord.com/oauth2/authorize?client_id=491024648696233984">(invite)</a>, <a href="https://youtube.com/Dax009">hordes of YouTube videos</a>, and <a href="https://github.com/dax009yt/dax009yt.github.io">this website.</a></span>
+                </div>
+            </div>
+            <div class="embeds">
+                <div class="ytPlaylistEmbed">
+                    <select id="playlistselection">
+                        <option value="0">Channel: Dax009</option>
+                        <option value="1">Channel: DaxTen</option>
+                        <option value="2">Playlist: The Best of Dax009</option>
+                        <option value="3">Playlist: Splatoon videos</option>
+                        <option value="4">Playlist: Technology stuff</option>
+                        <option value="5">Playlist: Vlogs/IRL stuff</option>
+                        <option value="6">Playlist: Dax009 Specials/Subscriber Milestones</option>
+                        <option value="7">Channel: Not Dax009</option>
+                        <option value="8">Friend: Jackeltron</option>
+                        <option value="9">Friend: Jackeltron TRES</option>
+                        <option value="10">Friend: Wooystun</option>
+                        <option value="11">Friend: Nebula</option>
+                        <option value="12">Friend: KingKeaton09</option>
+                        <option value="13">Friend: etern1</option>
+                        <option value="14">Friend: IAteUrCube</option>
+                        <option value="15">Friend: remote</option>
+                        <option value="16">Friend: 2Dimentions</option>
+                        <option value="17">Friend: FN32 DXer</option>
+                        <option value="18">Friend: kev996</option>
+                    </select>
+                    <iframe id="Dax009Playlist" class="ytEmbeds" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="otherPages">
             </div>
         </div>
-        <div class="discordWidget">
-            <a id="invite" href="">Join the Discord server!</a>
-            <span id="currentlyOnline">Loading Discord server info</span>
-            <div class="widgetMembers">
-
+        <div class="sidebar">
+            <div class="discordWidget">
+                <a id="invite" href="">Join the Discord server!</a>
+                <span id="currentlyOnline">Loading Discord server info</span>
+                <div class="widgetMembers">
+                </div>
             </div>
         </div>
     </div>
@@ -273,10 +355,40 @@
             });
         } catch (error) {
             console.error(error.message);
-            
+            currentlyOnline.innerText = 'Unable to fetch Discord widget info - ' + error.message;   
         }
     }
     getWidgetData()
+
+    const selectElement = document.getElementById("playlistselection"); 
+	const playlistEmbed = document.getElementById("Dax009Playlist");
+	const baseURL = "https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&enablejsapi=1&list=";
+	const playlistIDs = [
+        "UUXakrxvcr8Hl2bB30wGPDrQ", // Dax009
+        "UUXHbvF6pF4KOoJKqMhrv6yg", // DaxTen
+		"PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7", // The Best of Dax009
+		"PLsATjXjPMLqWosF6t0R37U8FMRGjHvmJg", // Splatoon videos!
+		"PLsATjXjPMLqU6903KRFi5Kf7OEoWMSGha", // Technology stuff!
+		//"PLsATjXjPMLqXM1yxLfH4la9Oz0CTxcyd1", // Homebrew/Hacks!
+		"PLsATjXjPMLqWXEyb8TxLZhQ3MbppXuD-3", // Vlogs/IRL stuff
+		"PLsATjXjPMLqXL-CCEGW-4G-8OI1mcEoiV", // Dax009 Specials/Subscriber Milestones
+		"UU1Nfey6JACblkz5xxwSBTOw", // Not Dax009/axdaxis
+		"UU5rYwkq1syVdrSnj0foZ7ig", // Jackeltron
+		"UUmnGxXwyE8wy9AqyBxkJBXg", // Jackeltron TRES
+		"UUg-dfNuQ5PFhzCkXe88STNg", // Wooystun
+		"UUUAi1YD6boX8Uhf7B0FBAMQ", // Nebula
+		"UUejvnBSSRVmOPzjInRALUng", // KingKeaton09
+		"UUn-OAQvi8kMo-aVIeLTSxdA", // etern1
+		"UUDeF1Hmg71xthk8kNwJxrxw", // IAteUrCube
+		"UUQD-ghnZ9417xQep5fmzDhg", // remote
+		"UU2-mAIWl_G8N8k0gmQipXSw", // 2Dimentions
+        "UUQpTfbeb4lfGAuZac1pOhTg", // FN32 DXer
+        "UUb5PlYiCd9CNdwsNJIBWf1Q" // kev996
+	];
+	selectElement.addEventListener("change", () => {
+		//alert(baseURL + playlistIDs[selectElement.value]);
+		playlistEmbed.src = baseURL + playlistIDs[selectElement.value];
+	});
 </script>
 
 </html>
