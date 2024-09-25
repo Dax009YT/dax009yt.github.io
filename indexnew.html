@@ -110,10 +110,9 @@
         padding-left: 8px;
         padding-right: 8px;
         box-sizing: border-box;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
         scrollbar-width: none;
-        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
     }
     .menuLinks a {
         color: white;
@@ -129,6 +128,10 @@
         height: 25px;
         display: inline-block;
         vertical-align: middle;
+        filter: drop-shadow(1px 2px 3px rgb(0 0 0 / 0.5));
+    }
+    .mail {
+        filter: drop-shadow(3px 5px 2px rgba(255, 255, 255, 0.4)) invert(1);
     }
     .main {
         display: flex;
@@ -167,6 +170,10 @@
         .sidebar {
             width: 100%;
         }
+        .menuLinks {
+            justify-content: flex-start;
+        }
+
     }
     .discordWidget {
         border: 4px solid rgba(0,0,0,0.5);
@@ -229,6 +236,27 @@
     .sidebar {
         max-width: 100%;
     }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        overflow: visible;
+    }
+    .dropdownLinks {
+        overflow: visible;
+        display: none;
+        position: fixed;
+        border-radius: 3px;
+        background: rgba(0,0,0,0.5);
+        min-width: 100px;
+        height: auto;
+        padding: 4px 4px 4px 4px;
+        flex-direction: column;
+        z-index: 100;
+        box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+        text-align: left;
+    }
+    .dropdown:hover .dropdown:focus .dropdownLinks {display: flex;}
+
     /* .otherPages {
         border: 4px solid rgba(0,0,0,0.5);
         padding: 8px 8px 8px 8px;
@@ -242,21 +270,31 @@
 
 <body>
     <a href="https://dax009.ink"><img id="logo" src="assets/headerimgs/4.png" alt="Dax009's Website logo"></a><br>
-    <span id="debug">debug</span>
     <div class="menuLinks">
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/specs/">Specs</a>
         <a href="https://links.dax009.ink">Links</a>
         <a href="/neatwebsites/">Neat websites</a>
-        <a href="https://doxmyself.dax009.ink">doxmyself</a>
         <a href="/searchEngineRoulette/">Search Engine Roulette</a>
         <a href="https://daxbot.dax009.ink">DaxBot</a>
         <a href="https://axdaxis.dev/files/">Files</a>
+        <div class="dropdown">
+            <a href="#" id="dropdownToggle">More</a>
+            <div class="dropdownLinks">
+                <a href="https://doxmyself.dax009.ink">doxmyself</a>
+                <a href="/dogcheck/">dogcheck [© undertale]</a>
+                <a href="/colorCafe/">Color Cafe [© deltarune]</a>
+                <a href="/ralsei/">ralsei [© deltarune]</a>
+                <a href="/mcupdatearchive/">mcupdate.tumblr.com archive</a>
+                <a href="/privacypolicycws/">Chrome Web Store extension privacy policy</a>
+                <a href="/wholesome/">wholesome</a>
+            </div>
+        </div>
         <a target="_blank" href="https://youtube.com/Dax009"><img src="/images/yt.svg" class="headerIcon"></a>
         <a target="_blank" href="https://twitter.com/Dax009YT"><img src="/images/twtr.svg" class="headerIcon"></a>
         <a target="_blank" href="https://discord.com/invite/Zkp72CE"><img src="/images/discord.svg" class="headerIcon"></a>
-        <a target="_blank" href="mailto:dax009business@hotmail.com"><img src="/images/envelope-regular.svg" class="headerIcon invert"></a>
+        <a target="_blank" href="mailto:dax009business@hotmail.com"><img src="/images/envelope-regular.svg" class="headerIcon mail"></a>
     </div>
     <div class="main">
         <div class="firstSection">
@@ -295,8 +333,6 @@
                     <iframe id="Dax009Playlist" class="ytEmbeds" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="otherPages">
-            </div>
         </div>
         <div class="sidebar">
             <div class="discordWidget">
@@ -329,12 +365,6 @@
 </footer>
 
 <script>
-    const debugText = document.getElementById("debug");
-    const theScrollerrrr = document.getElementsByClassName("menuLinks")[0];
-    setInterval(function () {
-        debugText.innerText = theScrollerrrr.scrollLeft;
-    }, 100)
-
     const discordWidget = document.getElementsByClassName("discordWidget")[0];
     const inviteAnchor = document.getElementById("invite");
     const currentlyOnline = document.getElementById("currentlyOnline");
