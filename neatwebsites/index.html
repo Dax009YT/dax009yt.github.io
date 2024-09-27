@@ -21,8 +21,8 @@
 <style>
     body {
         margin: 0;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
     }
     .content {
         margin-left: 6px;
@@ -59,14 +59,9 @@
             margin: 0;
         }
     }
-    pre {
-        overflow: auto;
-        white-space: pre-wrap;
-    }
     
     @media (prefers-color-scheme: dark) {
 		body {
-			background-color: #121212;
 			color: white;
 			background: linear-gradient(0deg, rgba(18,31,46,1) 0%, rgba(0,35,84,1) 100%);
 			background-repeat: no-repeat;
