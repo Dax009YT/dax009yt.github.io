@@ -1,12 +1,4 @@
 User-Agent: *
-Disallow: /
-Disallow: /twitterembed/
-Disallow: /assets/
-Disallow: /503/
-Disallow: /images/
-Disallow: /old.html
-Disallow: /nk.html
-Disallow: /audio/
 Allow: /$
 Allow: /searchEngineRoulette/
 Allow: /specs/
@@ -17,6 +9,14 @@ Allow: /ralsei/
 Allow: /dogcheck/
 Allow: /colorCafe/
 Allow: /index.html
+Disallow: /
+Disallow: /twitterembed/
+Disallow: /assets/
+Disallow: /503/
+Disallow: /images/
+Disallow: /old.html
+Disallow: /nk.html
+Disallow: /audio/
 
 User-agent: GPTBot
 Disallow: /
