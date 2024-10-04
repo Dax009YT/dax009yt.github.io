@@ -323,6 +323,8 @@
     }
     .statusBadges {
         margin: auto;
+        overflow-x: auto;
+        max-width: 100%;
     }
     .funbuttons {
         border: 4px solid rgba(0,0,0,0.5);
@@ -394,6 +396,7 @@
                     <p>I'm just your average dude, basically. I enjoy coding (sometimes), makin' videos, screwing with tech, and more. Wanna know more (borderline useless) info? <a href="/about/">Check this out!</a></p>
                     <span>Stuff I've made:</span>
                     <span><a href="https://chromewebstore.google.com/detail/roblox-audio-downloader/beonfijfkkhcdidijfmiohnajkpinled?hl=en">ROBLOX Audio Downloader</a>, <a href="https://daxbot.dax009.ink">DaxBot</a> <a href="https://discord.com/oauth2/authorize?client_id=491024648696233984">(invite)</a>, <a href="https://youtube.com/Dax009">hordes of YouTube videos</a>, and <a href="https://github.com/dax009yt/dax009yt.github.io">this website.</a></span>
+                    <p id="localTime">My current time is: </p>
                 </div>
                 <div class="statusBadges">
                         <img src="https://api.statusbadges.me/badge/status/244224554686218240?style=flat-square" alt="status">
@@ -650,6 +653,42 @@
         wavesurfer.load(newRandomAudioFile);
         wavesurfer.setTime(0);
     }
+    const targetTimezone = "America/Chicago";
+
+    function getLocalTimeForTimezone() {
+        const localTime = new Date().toLocaleString("en-US", {
+            timeZone: targetTimezone,
+            hour12: true,
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+        return localTime;
+    }
+
+    function calculateOffset() {
+        const targetTime = new Date().toLocaleString("en-US", { timeZone: targetTimezone });
+        const targetDate = new Date(targetTime);
+
+        // Get the current time and calculate timezone offset in minutes
+        const clientOffset = new Date().getTimezoneOffset(); // in minutes
+        const targetOffset = targetDate.getTimezoneOffset(); // in minutes
+
+        const offsetHours = (targetOffset - clientOffset) / 60;
+        return offsetHours;
+    }
+
+    function updateDisplay() {
+        const localTime = getLocalTimeForTimezone();
+        const offset = calculateOffset();
+
+        const offsetText = offset === 0 ? "the same as" :
+                            offset > 0 ? `${offset} hours ahead of` :
+                            `${Math.abs(offset)} hours behind`;
+
+        document.getElementById("localTime").innerText = `My local time is ${localTime} - this is ${offsetText} your local time!`;
+    }
+    updateDisplay();
 </script>
 
 </html>
