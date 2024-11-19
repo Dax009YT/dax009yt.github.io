@@ -338,6 +338,15 @@
     .funbuttons a {
         width: auto;
     }
+    .online {
+        border: 2px solid #23a55a;
+    }
+    .idle {
+        border: 2px solid #f0b232;
+    }
+    .dnd {
+        border: 2px solid #f23f43;
+    }
     /* .otherPages {
         border: 4px solid rgba(0,0,0,0.5);
         padding: 8px 8px 8px 8px;
@@ -577,8 +586,22 @@
                 memberAvatar.src = element.avatar_url;
                 member.appendChild(memberAvatar);
                 let memberUsername = document.createElement('span');
-                memberUsername.innerText = element.username + ' - ' + element.status;
+                memberUsername.innerText = element.username;
                 member.appendChild(memberUsername);
+                if (element.status === 'online') {
+                    memberAvatar.classList.add('online');
+                } else if (element.status === 'idle') {
+                    memberAvatar.classList.add('idle');
+                } else if (element.status === 'dnd') {
+                    memberAvatar.classList.add('dnd');
+                }
+                if (element.game) {
+                    let gameText = element.game.name.substring(0, 8);
+                    if (element.game.name.length > 8) {
+                        gameText += '…';
+                    }
+                    memberUsername.innerText = element.username + ' - Playing ' + gameText;
+                }
                 widgetMembers.appendChild(member);
             });
         } catch (error) {
