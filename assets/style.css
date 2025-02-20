@@ -20,6 +20,8 @@
         vertical-align: middle;
         align-items: center;
         display: flex;
+        margin-left: 0;
+        margin-right: 0;
     }
     .headertitle a {
         padding: 8px;

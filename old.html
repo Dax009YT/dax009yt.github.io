@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--im sorry, im bad at coding - dax-->
+<html>
+
+<head>
+<title>Dax009's Website</title>
+
+<link rel="prefetch" href="assets/headerimgs/1.png" />
+<link rel="prefetch" href="assets/headerimgs/2.png" />
+<link rel="prefetch" href="assets/headerimgs/3.png" />
+<link rel="prefetch" href="assets/headerimgs/4.png" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="f1Pop6nO-D9Qlz1T_hrV0r1oxds-_7X5f_0ED8xy1tQ" />
+
+<meta property="og:title" content="Dax009's Website">
+<meta property="og:description" content="Dax009's website! Info about me, my YouTube videos, social media posts, and more!">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://dax009.ink/images/logo500px.png"/>
+<meta property="og:url" content="https://dax009yt.github.io"/>
+<meta name="apple-mobile-web-app-status-bar" content="#FF6A00">
+<meta name="apple-mobile-web-app-capable" content="yes"> 
+<meta name="msapplication-TileColor" content="#FF6A00">
+<meta name="theme-color" content="#FF6A00">
+<meta name="theme-color" content="rgba(255, 106, 0, 1)">
+<meta name="keywords" content="Dax009, Dax009YT, YTDax009">
+<meta name="description" content="Dax009's website! Info about me, my YouTube videos, social media posts, and more!">
+
+<meta name="darkreader-lock">
+	
+<link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+	html {
+		text-align: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	} 
+	@media (prefers-color-scheme: dark) {
+		body {
+			/* background-color: #121212; */
+			color: white;
+			background: linear-gradient(0deg, rgba(18,31,46,1) 0%, rgba(0,35,84,1) 100%);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+	}
+	@media (prefers-color-scheme: light) {
+		body {
+			background: linear-gradient(0deg, rgba(0,104,255,1) 0%, rgba(2,26,96,1) 100%);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+	}
+	@font-face {
+		font-family: eightbitoperator;
+		src: url(assets/8bitoperatorJVE.woff);
+	}
+	body {
+		margin-bottom: 24px;
+		margin-top: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	body, button {
+		font-family: eightbitoperator, 'Source Sans Pro';
+	}
+	button {
+		background-color: #4681f4;
+		background: linear-gradient(135deg, rgba(59,0,255,1) 0%, rgba(0,148,255,1) 100%);
+		border-radius: 3px;
+		color: white; 
+		border: none;
+		margin: 2px;
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: max(2.2vmin, 20px);
+		transition: all 0.2s ease;
+	} 
+	button:active {
+		background: #0094FF;
+	}
+	button:hover {
+		transform: scale(1.05) perspective(1px)
+	}
+	a {
+		color: #FF6A00;
+	}
+	.buttons {
+		text-decoration: none !important;
+		color: inherit;
+	}
+	.embeds {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		height: max-content;
+	}
+	#Dax009Video, #DaxTenVideo, #Dax009Playlist, .TumblrEmbed {
+		flex-direction: column;
+		border-radius: 5px;
+	}
+	#Dax009Playlist {
+		align-self: flex-end;
+	}
+	.ytEmbeds {
+		aspect-ratio: 16 / 9;
+		width: 25vw;
+		min-width: 368px;
+		min-height: 207px;
+		border-radius: 5px; 
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.socialEmbeds, .twitter-timeline {
+		width: 25vw;
+		height: auto;
+		min-width: 368px;
+		min-height: 500px;
+	}
+	#twitter-widget-0 {
+		width: 25vw !important;
+		height: 100% !important;
+		min-width: 368px !important;
+	}
+	#logo {
+		object-fit: contain;
+		height: 5vh;
+		max-width: 95%;
+		margin-top: 10px;
+	}
+	#playlistselection {
+		width: 98%; 
+		font-family: eightbitoperator, 'Source Sans Pro';
+		font-size: max(2.2vh, 18px);
+		background: #FF6A00;
+		color: white;
+		border-radius: 3px;
+	}
+	#otherPages {
+		font-family: eightbitoperator, 'Source Sans Pro';
+		font-size: max(2.3vh, 12px);
+		background: #FF6A00;
+		color: white;
+		border-radius: 3px;
+	}
+	#switchEmbedButton {
+		max-height: 10%;
+		background: linear-gradient(360deg, #08203b 0%, rgba(0,148,255,1) 100%);
+	}
+	.twitter-timeline {
+		display: none;
+	}
+	.TumblrEmbed {
+		display: none;
+	}
+	.followButtons * {
+		height: 2.5vh;
+	}
+</style>
+
+<script>
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.getRegistrations()
+		.then(function(registrations) {
+			for(let registration of registrations) {
+			registration.unregister();
+		}
+	});
+}
+</script>
+
+</head>
+
+<body>
+
+<a href="https://dax009.ink"><img id="logo" src="assets/headerimgs/1.png" alt="Dax009's Website logo"></a><br>
+<script>
+	/* setInterval(function() {
+		var logo = document.getElementById("logo");
+		if (logo.getAttribute("src") == "daxwebsite1.png") {
+			logo.src = "daxwebsite2.png";
+		} else {
+			logo.src = "daxwebsite1.png";
+		}
+	}, 1000); */
+	// const rand = Math.floor(Math.random() * 4) + 1
+	var logo = document.getElementById("logo");
+	/* if (rand === 1) {
+		logo.src = "assets/headerimgs/1.png";
+	} else if (rand === 2) {
+		logo.src = "assets/headerimgs/2.png";
+	} else if (rand === 3) {
+		logo.src = "assets/headerimgs/3.png";
+	} else if (rand === 4) {
+		logo.src = "assets/headerimgs/4.png";
+	} */
+	// now this is awful coding
+	var arrayImg = new Array();
+	arrayImg[0] = "1.png";
+	arrayImg[1] = "2.png";
+	arrayImg[2] = "3.png";
+	arrayImg[3] = "4.png";
+
+	function getRandomImage(imgAr, path) {
+		path = path || 'assets/headerimgs/';
+		var num = Math.floor(Math.random() * imgAr.length);
+		var img = imgAr[ num ];
+		logo.src = path + img
+	}	
+	getRandomImage(arrayImg, '/assets/headerimgs/')
+</script>
+
+<button class="point"><a class="buttons" href='/about/'>About</a></button>
+<button class="point"><a class="buttons" href='/specs/'>Specs</a></button>
+<button class="point"><a class="buttons" href='https://links.dax009.ink/'>Links</a></button>
+<button class="point"><a class="buttons" href='/neatwebsites/'>Neat websites</a></button><br>
+<button class="point"><a class="buttons" href='https://doxmyself.dax009.ink/'>doxmyself</a></button>
+<button class="point"><a class="buttons" href='/searchEngineRoulette/'>Search Engine Roulette</a></button>
+<button class="point"><a class="buttons" href='https://daxbot.dax009.ink'>DaxBot</a></button>
+<button onclick="switchEmbeds()" id="switchEmbedButton">Toggle Twitter/Tumblr embed</button>
+<br>
+
+<!-- <a target="_blank" href="https://www.youtube.com/Dax009?sub_confirmation=1">-->
+<!--</a>-->
+<a class="followButtons" target="_blank" href="https://youtube.com/Dax009?sub_confirmation=1" class="popup"><img alt="Dax009 Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCXakrxvcr8Hl2bB30wGPDrQ?label=Subscribe&style=social"></a>
+<a class="followButtons" target="_blank" href="https://twitter.com/intent/follow?screen_name=Dax009YT"><img alt="Dax009 on Twitter" src="https://img.shields.io/badge/@Dax009YT-green?logo=Twitter&style=social&label=Follow&message=3"></a>
+<a class="followButtons" target="_blank" href="https://discord.com/invite/Zkp72CE"><img alt="Dax009's Discord Server" src="https://img.shields.io/discord/549307561086550017?label=Discord&logo=Discord&logoColor=7289DA&style=social"></a><br>
+
+<div class="embeds">
+<iframe id="DiscordEmbed" class="socialEmbeds" src="https://discord.com/widget?id=549307561086550017&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+<div>
+<iframe id="Dax009Video" class="ytEmbeds" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXakrxvcr8Hl2bB30wGPDrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<iframe id="DaxTenVideo" class="ytEmbeds" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=UUXHbvF6pF4KOoJKqMhrv6yg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<select id="playlistselection">
+	<option value="0">Playlist: The Best of Dax009</option>
+	<option value="1">Playlist: Splatoon videos</option>
+	<option value="2">Playlist: Technology stuff</option>
+	<option value="3">Playlist: Vlogs/IRL stuff</option>
+	<option value="4">Playlist: Dax009 Specials/Subscriber Milestones</option>
+	<option value="5">Channel: Not Dax009</option>
+	<option value="6">Friend: Jackeltron</option>
+	<option value="7">Friend: Jackeltron TRES</option>
+	<option value="8">Friend: Wooystun</option>
+	<option value="9">Friend: Nebula</option>
+	<option value="10">Friend: KingKeaton09</option>
+	<option value="11">Friend: etern1</option>
+	<option value="12">Friend: IAteUrCube</option>
+	<option value="13">Friend: remote</option>
+	<option value="14">Friend: 2Dimentions</option>
+</select><br>
+<iframe id="Dax009Playlist" class="ytEmbeds" src="https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&list=PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<!--
+<iframe id="youtube_video" width="375" height="225" frameborder="0" allowfullscreen></iframe>
+-->
+
+<a class="twitter-timeline socialEmbeds" data-tweet-limit="20"  data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw"></a>
+<iframe class="TumblrEmbed socialEmbeds" frameborder="0" style="margin: 0; overflow: hidden;" loading="lazy" src="https://tumblr.dax009.ink/#feed"></iframe>
+
+<!-- <iframe class="twitterEmbeddedTimeline socialEmbeds" frameborder="0" style="overflow: hidden; margin: 0;" src="/twitterembed/"></iframe> -->
+<!-- <a class="twitter-timeline" data-width="375" data-height="500" data-dnt="true" data-theme="dark" href="https://twitter.com/Dax009YT?ref_src=twsrc%5Etfw">Tweets by Dax009YT</a> -->
+</div>
+<br>
+<select class="bottom" id="otherPages">	
+	<option value="0">Other pages:</option>
+	<option value="1">dogcheck [unaffiliated w/ tobyfox]</option>
+	<option value="2">Color Cafe [unaffiliated w/ tobyfox]</option>
+	<option value="3">ralsei spin [unaffiliated w/ tobyfox, gif from pynchosa on Tenor]</option>
+	<option value="4">mcupdateArchive</option>
+	<option value="5">Chrome Web Store extension privacy policy</option>
+	<option value="6">wholesome69</option>
+	<option value="7">Old Google Sites version of website</option>
+	<option value="8">Tumblr</option>
+	<option value="9">uSploit (Outdated!)</option>
+	<option value="10">Public drive</option>
+</select><br>
+<a target="_blank" class="bottom" style="font-size: max(2vmin, 18px); display: inline-block;" href="https://github.com/dax009yt/dax009yt.github.io"><p>Hosted on GitHub Pages + CloudFlare</p></a><br>
+
+<span id="irc" style="display: none; font-family: cursive !important; background: red; border: 1px solid black;padding: 3px;font-weight: bold;">IRC-Bullying-Awareness &mdash; We support the <a href="http://stop-irc-bullying.info/" title="Stop bullying on IRC now!">Stop IRC Bullying Foundation!</a></span>
+<div class="eggbuttons">
+	<a href="/ralsei/"><img src="/images/ralseismokingadart.gif"></a>
+	<a href="/colorCafe/"><img src="/images/ezgif2.gif"></a>
+	<img src="/images/made_with_windows.gif">
+	<img src="/images/vscbutton.gif">
+</div>
+<footer>
+    <div>
+    <img src="/images/icon-512x512.png" class="footerIcon">
+    <p id="footerCopyright">Copyright Dax009 2024</p>
+    <div class="footerSocialIcons">
+        <a target="_blank" href="https://youtube.com/Dax009"><img src="/images/yt.svg" class="footerIcon"></a>
+        <a target="_blank" href="https://twitter.com/Dax009YT"><img src="/images/twtr.svg" class="footerIcon"></a>
+        <br>
+        <a target="_blank" href="https://discord.com/invite/Zkp72CE"><img src="/images/discord.svg" class="footerIcon"></a>
+        <a target="_blank" href="mailto:dax009business@hotmail.com"><img src="/images/envelope-regular.svg" class="footerIcon invert"></a>
+    </div>
+	</div>
+    <i>All trademarks, logos and brand names are the property of their respective owners.</i>
+	<script>
+		document.getElementById("footerCopyright").innerHTML = "Copyright Dax009 " + new Date().getFullYear();
+	</script>
+</footer>
+
+
+<!--<script>
+  var channelID = "UCXakrxvcr8Hl2bB30wGPDrQ";
+  var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+    $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL)+channelID, function(data) {
+  var link = data.items[0].link;
+  var id = link.substr(link.indexOf("=")+1);
+    $("#youtube_video").attr("src","https://www.youtube.com/embed/"+id);
+  });
+</script>-->
+<script>
+	// yt player stuff
+	/* var tag = document.createElement('script');
+	tag.src = 'https://www.youtube.com/iframe_api';
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	var player;
+	function onYouTubeIframeAPIReady() {
+	var player = new YT.Player('Dax009Playlist', {
+		events: {
+			'onReady': onPlayerReady		
+		}
+	});
+	}
+	function onPlayerReady(event) {
+		event.target.cuePlaylist({list: "PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7"});
+	} */
+
+	//functions
+	function switchEmbeds() {
+		var twitterembed = document.getElementsByClassName("twitter-timeline")[0];
+		var tumblrembed = document.getElementsByClassName("TumblrEmbed")[0];
+		if (window.getComputedStyle(tumblrembed).display == 'none') {
+			twitterembed.style.display = "none";
+			tumblrembed.style.display = "flex";
+		} else {
+			tumblrembed.style.display = "none";
+			twitterembed.style.display = "flex";
+		}
+	}
+	function togglepopup() {
+		var popup = document.getElementsByClassName("popup")[0];
+		var subscribe = document.getElementsByClassName("subscribe")[0];
+		if (subscribe.style.display == "flex") {
+			subscribe.style.display = "none";
+		} else {
+			subscribe.style.display = "flex";
+		}
+	}
+
+	const otherPages = document.getElementById("otherPages");
+	const pages = [
+		"",
+		"/dogcheck/",
+		"/colorCafe/",
+		"/ralsei/",
+		"/mcupdatearchive/",
+		"/privacypolicycws/",
+		"/wholesome/",
+		"https://gsites.beta.dax009.ink",
+		"https://tumblr.dax009.ink",
+		"http://usploit.dax009.ink",
+		"https://axdaxis.dev"
+	]
+	otherPages.addEventListener("change", () => {
+		//alert(baseURL + playlistIDs[selectElement.value]);
+		window.location.href = pages[otherPages.value];
+	});
+
+	//google generative ai moment
+	const selectElement = document.getElementById("playlistselection"); 
+	const playlistEmbed = document.getElementById("Dax009Playlist");
+	const baseURL = "https://www.youtube-nocookie.com/embed/videoseries?playsinline=0&rel=0&origin=https://dax009.ink&enablejsapi=1&list=";
+	const playlistIDs = [
+		"PLsATjXjPMLqWFwrQKUSgKs955VSBMbSk7", // The Best of Dax009
+		"PLsATjXjPMLqWosF6t0R37U8FMRGjHvmJg", // Splatoon videos!
+		"PLsATjXjPMLqU6903KRFi5Kf7OEoWMSGha", // Technology stuff!
+		//"PLsATjXjPMLqXM1yxLfH4la9Oz0CTxcyd1", // Homebrew/Hacks!
+		"PLsATjXjPMLqWXEyb8TxLZhQ3MbppXuD-3", // Vlogs/IRL stuff
+		"PLsATjXjPMLqXL-CCEGW-4G-8OI1mcEoiV", // Dax009 Specials/Subscriber Milestones
+		"UU1Nfey6JACblkz5xxwSBTOw", // Not Dax009/axdaxis
+		"UU5rYwkq1syVdrSnj0foZ7ig", // Jackeltron
+		"UUmnGxXwyE8wy9AqyBxkJBXg", // Jackeltron TRES
+		"UUg-dfNuQ5PFhzCkXe88STNg", // Wooystun
+		"UUUAi1YD6boX8Uhf7B0FBAMQ", // Nebula
+		"UUejvnBSSRVmOPzjInRALUng", // KingKeaton09
+		"UUn-OAQvi8kMo-aVIeLTSxdA", // etern1
+		"UUDeF1Hmg71xthk8kNwJxrxw", // IAteUrCube
+		"UUQD-ghnZ9417xQep5fmzDhg", // remote
+		"UU2-mAIWl_G8N8k0gmQipXSw" // 2Dimentions
+	];
+	selectElement.addEventListener("change", () => {
+		//alert(baseURL + playlistIDs[selectElement.value]);
+		playlistEmbed.src = baseURL + playlistIDs[selectElement.value];
+	});
+
+	if (Math.round(Math.random() * (10 - 0) + 0) == 5) {
+		document.getElementById('irc').style.display = "block";
+	}
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js"></script>
+<script src="cookie.notice.js"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
